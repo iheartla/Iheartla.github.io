@@ -1,0 +1,240 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../static/style.css">
+<title>Convex Optimization page 650 — I❤️LA</title>
+<body>
+  <header>
+    <link href="../../static/prism.css" rel="stylesheet" />
+    <h1> Convex Optimization page 650 </h1>
+  </header>
+  <script src="../../static/prism.js"></script>
+  <div class="page">
+    
+  
+
+  
+    <div class="gallery_post">
+
+    <!-- <p>Implementing equations from Convex Optimization page 650.</p>
+ -->
+
+    
+     <p>An example from <a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization page 650</a>
+    
+    
+    
+    <p>The original equation:
+      <p><img src=../../static/gallery_res/Convex%20Optimization%20page%20650/convex_optimization_650.png alt="placeholder" width="700" style='object-fit: scale-down;'>
+    
+
+    
+      <p>I❤️LA implementation:
+      <div class="code_block" style='height: auto;'><pre ><code class="language-cpsp">given
+A ∈ ℝ^(k×k) 
+B ∈ ℝ^(k×m) 
+C ∈ ℝ^(m×m) 
+
+S = C - BᵀA⁻¹B
+[A⁻¹+A⁻¹BS⁻¹BᵀA⁻¹   -A⁻¹BS⁻¹
+   -S⁻¹BᵀA⁻¹           S⁻¹]</code></pre></div>
+    
+
+    
+      
+        <p>I❤️LA compiled to C++/Eigen:
+        <div class="code_block"><pre ><code class="language-cpp">/*
+given
+A ∈ ℝ^(k×k) 
+B ∈ ℝ^(k×m) 
+C ∈ ℝ^(m×m) 
+
+S = C - BᵀA⁻¹B
+[A⁻¹+A⁻¹BS⁻¹BᵀA⁻¹   -A⁻¹BS⁻¹
+   -S⁻¹BᵀA⁻¹           S⁻¹]
+*/
+#include &lt;Eigen/Core&gt;
+#include &lt;Eigen/Dense&gt;
+#include &lt;Eigen/Sparse&gt;
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+struct convex_optimization_650ResultType {
+    Eigen::MatrixXd S;
+    Eigen::MatrixXd ret;
+    convex_optimization_650ResultType(const Eigen::MatrixXd &amp; S,
+               const Eigen::MatrixXd &amp; ret)
+    : S(S),
+    ret(ret)
+    {}
+};
+
+convex_optimization_650ResultType convex_optimization_650(
+    const Eigen::MatrixXd &amp; A,
+    const Eigen::MatrixXd &amp; B,
+    const Eigen::MatrixXd &amp; C)
+{
+    const long k = A.cols();
+    const long m = B.cols();
+    assert( A.rows() == k );
+    assert( B.rows() == k );
+    assert( C.rows() == m );
+    assert( C.cols() == m );
+
+    Eigen::MatrixXd S = C - B.transpose() * A.colPivHouseholderQr().solve(B);
+
+    Eigen::MatrixXd ret_0(k+m, k+m);
+    ret_0 &lt;&lt; A.inverse() + A.colPivHouseholderQr().solve(B) * S.colPivHouseholderQr().solve(B.transpose()) * A.inverse(), -A.colPivHouseholderQr().solve(B) * S.inverse(),
+    -S.colPivHouseholderQr().solve(B.transpose()) * A.inverse(), S.inverse();
+    Eigen::MatrixXd ret = ret_0;
+    return convex_optimization_650ResultType(S, ret);
+}
+
+
+void generateRandomData(Eigen::MatrixXd &amp; A,
+    Eigen::MatrixXd &amp; B,
+    Eigen::MatrixXd &amp; C)
+{
+    const int k = rand()%10;
+    const int m = rand()%10;
+    A = Eigen::MatrixXd::Random(k, k);
+    B = Eigen::MatrixXd::Random(k, m);
+    C = Eigen::MatrixXd::Random(m, m);
+}
+
+
+int main(int argc, char *argv[])
+{
+    srand((int)time(NULL));
+    Eigen::MatrixXd A;
+    Eigen::MatrixXd B;
+    Eigen::MatrixXd C;
+    generateRandomData(A, B, C);
+    convex_optimization_650ResultType func_value = convex_optimization_650(A, B, C);
+    std::cout&lt;&lt;&#34;return value:\n&#34;&lt;&lt;func_value.ret&lt;&lt;std::endl;
+    return 0;
+}</code></pre></div>
+      
+    
+
+     
+    
+      <p>I❤️LA compiled to Python/NumPy/SciPy:
+      <div class="code_block"><pre ><code class="language-python">&#34;&#34;&#34;
+given
+A ∈ ℝ^(k×k) 
+B ∈ ℝ^(k×m) 
+C ∈ ℝ^(m×m) 
+
+S = C - BᵀA⁻¹B
+[A⁻¹+A⁻¹BS⁻¹BᵀA⁻¹   -A⁻¹BS⁻¹
+   -S⁻¹BᵀA⁻¹           S⁻¹]
+&#34;&#34;&#34;
+import numpy as np
+import scipy
+import scipy.linalg
+from scipy import sparse
+from scipy.integrate import quad
+from scipy.optimize import minimize
+
+
+class convex_optimization_650ResultType:
+    def __init__( self, S, ret):
+        self.S = S
+        self.ret = ret
+
+
+def convex_optimization_650(A, B, C):
+    A = np.asarray(A, dtype=np.float64)
+    B = np.asarray(B, dtype=np.float64)
+    C = np.asarray(C, dtype=np.float64)
+
+    k = A.shape[1]
+    m = B.shape[1]
+    assert A.shape == (k, k)
+    assert B.shape == (k, m)
+    assert C.shape == (m, m)
+
+    S = C - B.T @ np.linalg.solve(A, B)
+    ret_0 = np.block([[np.linalg.inv(A) + np.linalg.solve(A, B) @ np.linalg.solve(S, B.T) @ np.linalg.inv(A), -np.linalg.solve(A, B) @ np.linalg.inv(S)], [-np.linalg.solve(S, B.T) @ np.linalg.inv(A), np.linalg.inv(S)]])
+    ret = ret_0
+    return convex_optimization_650ResultType(S, ret)
+
+
+def generateRandomData():
+    k = np.random.randint(10)
+    m = np.random.randint(10)
+    A = np.random.randn(k, k)
+    B = np.random.randn(k, m)
+    C = np.random.randn(m, m)
+    return A, B, C
+
+
+if __name__ == &#39;__main__&#39;:
+    A, B, C = generateRandomData()
+    print(&#34;A:&#34;, A)
+    print(&#34;B:&#34;, B)
+    print(&#34;C:&#34;, C)
+    func_value = convex_optimization_650(A, B, C)
+    print(&#34;return value: &#34;, func_value.ret)</code></pre></div>
+    
+
+<!--      -->
+
+    
+      <p>I❤️LA compiled to LaTeX:
+      <div class="code_block"><pre ><code class="language-tex">\documentclass[12pt]{article}
+\usepackage{mathdots}
+\usepackage[bb=boondox]{mathalfa}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{libertine}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage[paperheight=8in,paperwidth=4in,margin=.3in,heightrounded]{geometry}
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\begin{document}
+
+\begin{center}
+\resizebox{\textwidth}{!} 
+{
+\begin{minipage}[c]{\textwidth}
+\begin{align*}
+\intertext{given} 
+\mathit{A} &amp; \in \mathbb{R}^{ \mathit{k} \times \mathit{k} } \\
+\mathit{B} &amp; \in \mathbb{R}^{ \mathit{k} \times \mathit{m} } \\
+\mathit{C} &amp; \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\\
+\mathit{S} &amp; = \mathit{C} - {\mathit{B}}^T\mathit{A}^{-1}\mathit{B} \\
+ \omit \span \begin{bmatrix}
+\mathit{A}^{-1} + \mathit{A}^{-1}\mathit{B}\mathit{S}^{-1}{\mathit{B}}^T\mathit{A}^{-1} &amp; -\mathit{A}^{-1}\mathit{B}\mathit{S}^{-1}\\
+-\mathit{S}^{-1}{\mathit{B}}^T\mathit{A}^{-1} &amp; \mathit{S}^{-1}\\
+\end{bmatrix} \\
+\end{align*}
+\end{minipage}
+}
+\end{center}
+
+\end{document}
+</code></pre></div>
+    
+
+    
+
+      <p>I❤️LA LaTeX output:
+      <div>
+      <iframe src=../../static/gallery_res/Convex%20Optimization%20page%20650/convex_optimization_650.pdf frameborder="0" width="700" height="1000"><br>
+      </div>
+    
+    </div>
+  
+
+
+ 
+
+
+
+  </div>
+</body>

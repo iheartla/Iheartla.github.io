@@ -1,0 +1,9 @@
+given
+α_T : ℝ
+n_T : ℝ³
+
+`n(v)` = ( ∑_(T for T ∈ `N₁`_v) α_T n_T )/‖ ∑_(T for T ∈ `N₁`_v) α_T n_T ‖
+
+where
+v ∈ ℤ
+`N₁`_i ∈ {ℤ}

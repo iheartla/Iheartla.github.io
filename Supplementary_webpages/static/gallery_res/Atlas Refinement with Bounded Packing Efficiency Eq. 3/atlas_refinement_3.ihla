@@ -1,0 +1,9 @@
+`G_σ(s^k_i)` = ∑_j l_j exp(-dist(`bᵢ`, b_j)²/(2σ²)) `s^k`_j
+
+where
+l_j ∈ ℝ : the length of bj
+dist: ℝ², ℝ² → ℝ : measures the geodesic distance 
+`bᵢ` ∈ ℝ²
+b_j ∈ ℝ²
+σ ∈ ℝ
+`s^k`_j ∈ ℝ² : direction vector

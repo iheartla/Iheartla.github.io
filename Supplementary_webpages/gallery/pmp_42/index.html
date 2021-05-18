@@ -1,0 +1,286 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../static/style.css">
+<title>Polygon Mesh Processing page 42 — I❤️LA</title>
+<body>
+  <header>
+    <link href="../../static/prism.css" rel="stylesheet" />
+    <h1> Polygon Mesh Processing page 42 </h1>
+  </header>
+  <script src="../../static/prism.js"></script>
+  <div class="page">
+    
+  
+
+  
+    <div class="gallery_post">
+
+    <!-- <p>Implementing equations from Polygon Mesh Processing page 42.</p>
+ -->
+
+    
+     <p>An example from <a href="http://www.pmp-book.org">Polygon Mesh Processing page 42</a>
+    
+    
+    
+    <p>The original equation:
+      <p><img src=../../static/gallery_res/Polygon%20Mesh%20Processing%20page%2042/pmp_42.png alt="placeholder" width="700" style='object-fit: scale-down;'>
+    
+
+    
+      <p>I❤️LA implementation:
+      <div class="code_block" style='height: auto;'><pre ><code class="language-cpsp">given
+α_T : ℝ
+n_T : ℝ³
+
+`n(v)` = ( ∑_(T for T ∈ `N₁`_v) α_T n_T )/‖ ∑_(T for T ∈ `N₁`_v) α_T n_T ‖
+
+where
+v ∈ ℤ
+`N₁`_i ∈ {ℤ}</code></pre></div>
+    
+
+    
+      
+        <p>I❤️LA compiled to C++/Eigen:
+        <div class="code_block"><pre ><code class="language-cpp">/*
+given
+α_T : ℝ
+n_T : ℝ³
+
+`n(v)` = ( ∑_(T for T ∈ `N₁`_v) α_T n_T )/‖ ∑_(T for T ∈ `N₁`_v) α_T n_T ‖
+
+where
+v ∈ ℤ
+`N₁`_i ∈ {ℤ}
+*/
+#include &lt;Eigen/Core&gt;
+#include &lt;Eigen/Dense&gt;
+#include &lt;Eigen/Sparse&gt;
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+struct pmp_42ResultType {
+    Eigen::Matrix&lt;double, 3, 1&gt; n_left_parenthesis_v_right_parenthesis;
+    pmp_42ResultType(const Eigen::Matrix&lt;double, 3, 1&gt; &amp; n_left_parenthesis_v_right_parenthesis)
+    : n_left_parenthesis_v_right_parenthesis(n_left_parenthesis_v_right_parenthesis)
+    {}
+};
+
+/**
+ * pmp_42
+ *
+ * @param α  ℝ
+ * @param n  ℝ³
+ * @return n_left_parenthesis_v_right_parenthesis
+ */
+pmp_42ResultType pmp_42(
+    const std::vector&lt;double&gt; &amp; α,
+    const std::vector&lt;Eigen::Matrix&lt;double, 3, 1&gt;&gt; &amp; n,
+    const int &amp; v,
+    const std::vector&lt;std::set&lt;int &gt;&gt; &amp; N₁)
+{
+    const long dim_0 = α.size();
+    const long dim_1 = N₁.size();
+    assert( n.size() == dim_0 );
+
+    Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(3, 1);
+    for(int T=1; T&lt;=n.size(); T++){
+        std::set&lt;int &gt; set_0 = N₁.at(v-1);
+        if(set_0.find(int(T)) != set_0.end()){
+            sum_0 += α.at(T-1) * n.at(T-1);
+        }
+    }
+    Eigen::MatrixXd sum_1 = Eigen::MatrixXd::Zero(3, 1);
+    for(int T=1; T&lt;=n.size(); T++){
+        std::set&lt;int &gt; set_1 = N₁.at(v-1);
+        if(set_1.find(int(T)) != set_1.end()){
+            sum_1 += α.at(T-1) * n.at(T-1);
+        }
+    }
+    Eigen::Matrix&lt;double, 3, 1&gt; n_left_parenthesis_v_right_parenthesis = (sum_0) / double((sum_1).lpNorm&lt;2&gt;());
+
+    return pmp_42ResultType(n_left_parenthesis_v_right_parenthesis);
+}
+
+
+void generateRandomData(std::vector&lt;double&gt; &amp; α,
+    std::vector&lt;Eigen::Matrix&lt;double, 3, 1&gt;&gt; &amp; n,
+    int &amp; v,
+    std::vector&lt;std::set&lt;int &gt;&gt; &amp; N₁)
+{
+    v = rand() % 10;
+    const int dim_0 = rand()%10;
+    const int dim_1 = rand()%10;
+    α.resize(dim_0);
+    for(int i=0; i&lt;dim_0; i++){
+        α[i] = rand() % 10;
+    }
+    n.resize(dim_0);
+    for(int i=0; i&lt;dim_0; i++){
+        n[i] = Eigen::VectorXd::Random(3);
+    }
+    N₁.resize(dim_1);
+    for(int i=0; i&lt;dim_1; i++){
+        const int dim_3 = rand()%10;
+        for(int j=0; j&lt;dim_3; j++){
+            N₁[i].insert(rand()%10);
+        }
+    }
+}
+
+
+int main(int argc, char *argv[])
+{
+    srand((int)time(NULL));
+    std::vector&lt;double&gt; α;
+    std::vector&lt;Eigen::Matrix&lt;double, 3, 1&gt;&gt; n;
+    int v;
+    std::vector&lt;std::set&lt;int &gt;&gt; N₁;
+    generateRandomData(α, n, v, N₁);
+    pmp_42ResultType func_value = pmp_42(α, n, v, N₁);
+    std::cout&lt;&lt;&#34;return value:\n&#34;&lt;&lt;func_value.n_left_parenthesis_v_right_parenthesis&lt;&lt;std::endl;
+    return 0;
+}</code></pre></div>
+      
+    
+
+     
+    
+      <p>I❤️LA compiled to Python/NumPy/SciPy:
+      <div class="code_block"><pre ><code class="language-python">&#34;&#34;&#34;
+given
+α_T : ℝ
+n_T : ℝ³
+
+`n(v)` = ( ∑_(T for T ∈ `N₁`_v) α_T n_T )/‖ ∑_(T for T ∈ `N₁`_v) α_T n_T ‖
+
+where
+v ∈ ℤ
+`N₁`_i ∈ {ℤ}
+&#34;&#34;&#34;
+import numpy as np
+import scipy
+import scipy.linalg
+from scipy import sparse
+from scipy.integrate import quad
+from scipy.optimize import minimize
+
+
+class pmp_42ResultType:
+    def __init__( self, n_left_parenthesis_v_right_parenthesis):
+        self.n_left_parenthesis_v_right_parenthesis = n_left_parenthesis_v_right_parenthesis
+
+
+def pmp_42(α, n, v, N1):
+    &#34;&#34;&#34;
+    :param :α : ℝ
+    :param :n : ℝ³
+    &#34;&#34;&#34;
+    α = np.asarray(α, dtype=np.float64)
+    n = np.asarray(n, dtype=np.float64)
+
+    dim_0 = α.shape[0]
+    dim_1 = N1.shape[0]
+    assert α.shape == (dim_0,)
+    assert n.shape == (dim_0, 3, )
+    assert np.ndim(v) == 0
+
+    sum_0 = np.zeros((3, ))
+    for T in range(1, len(n)+1):
+        if((T) in N1[v-1]):
+            sum_0 += α[T-1] * n[T-1]
+    sum_1 = np.zeros((3, ))
+    for T in range(1, len(n)+1):
+        if((T) in N1[v-1]):
+            sum_1 += α[T-1] * n[T-1]
+    n_left_parenthesis_v_right_parenthesis = (sum_0) / np.linalg.norm(sum_1, 2)
+    return pmp_42ResultType(n_left_parenthesis_v_right_parenthesis)
+
+
+def generateRandomData():
+    v = np.random.randint(10)
+    dim_0 = np.random.randint(10)
+    dim_1 = np.random.randint(10)
+    α = np.random.randn(dim_0)
+    n = np.random.randn(dim_0, 3, )
+    N1 = []
+    for i in range(dim_1):
+        N1_tmp = []
+        dim_2 = np.random.randint(1, 10)
+        for j in range(dim_2):
+            N1_tmp.append((np.random.randint(10)))
+        N1.append(N1_tmp)
+    N1 = np.asarray(N1)
+    return α, n, v, N1
+
+
+if __name__ == &#39;__main__&#39;:
+    α, n, v, N1 = generateRandomData()
+    print(&#34;α:&#34;, α)
+    print(&#34;n:&#34;, n)
+    print(&#34;v:&#34;, v)
+    print(&#34;N1:&#34;, N1)
+    func_value = pmp_42(α, n, v, N1)
+    print(&#34;return value: &#34;, func_value.n_left_parenthesis_v_right_parenthesis)</code></pre></div>
+    
+
+<!--      -->
+
+    
+      <p>I❤️LA compiled to LaTeX:
+      <div class="code_block"><pre ><code class="language-tex">\documentclass[12pt]{article}
+\usepackage{mathdots}
+\usepackage[bb=boondox]{mathalfa}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{libertine}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage[paperheight=8in,paperwidth=4in,margin=.3in,heightrounded]{geometry}
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\begin{document}
+
+\begin{center}
+\resizebox{\textwidth}{!} 
+{
+\begin{minipage}[c]{\textwidth}
+\begin{align*}
+\intertext{given} 
+\mathit{α}_{\mathit{T}} &amp; \in \mathbb{R} \\
+\mathit{n}_{\mathit{T}} &amp; \in \mathbb{R}^{ 3} \\
+\\
+\mathit{n(v)} &amp; = \frac{\sum_{\mathit{T} \in \mathit{N₁}_{ \mathit{v} } } \mathit{α}_{ \mathit{T} }\mathit{n}_{ \mathit{T} }}{\left\|\sum_{\mathit{T} \in \mathit{N₁}_{ \mathit{v} } } \mathit{α}_{ \mathit{T} }\mathit{n}_{ \mathit{T} }\right\|_2} \\
+\intertext{where} 
+\mathit{v} &amp; \in \mathbb{Z} \\
+\mathit{N₁}_{\mathit{i}} &amp; \in \{\mathbb{Z}\} \\
+\\
+\end{align*}
+\end{minipage}
+}
+\end{center}
+
+\end{document}
+</code></pre></div>
+    
+
+    
+
+      <p>I❤️LA LaTeX output:
+      <div>
+      <iframe src=../../static/gallery_res/Polygon%20Mesh%20Processing%20page%2042/pmp_42.pdf frameborder="0" width="700" height="1000"><br>
+      </div>
+    
+    </div>
+  
+
+
+ 
+
+
+
+  </div>
+</body>

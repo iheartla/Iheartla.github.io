@@ -1,0 +1,13 @@
+from trigonometry: tan, cos
+
+t̃ = t/cos(θ)
+ã = a tan(θ)
+∑_i cos²(θ)((p_i - q_i)⋅n_i +((p_i+q_i)×n_i)⋅ã+n_i⋅t̃)² 
+
+where
+a ∈ ℝ³ : axis of rotation
+θ ∈ ℝ  : angle of rotation
+p_i ∈ ℝ³
+q_i ∈ ℝ³
+n_i ∈ ℝ³
+t ∈ ℝ³

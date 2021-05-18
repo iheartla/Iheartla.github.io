@@ -1,0 +1,6 @@
+given
+A_i ∈ ℝ^(m × n)  
+b_i ∈ ℝ^m  
+`x₀` ∈ ℝ^n  
+
+min_(x ∈ ℝ^n) ∑_i ‖A_i x + b_i‖ + (1/2)‖x-`x₀`‖²

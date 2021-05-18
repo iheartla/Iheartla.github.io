@@ -1,0 +1,31 @@
+\documentclass[12pt]{article}
+\usepackage{mathdots}
+\usepackage[bb=boondox]{mathalfa}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{libertine}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage[paperheight=8in,paperwidth=4in,margin=.3in,heightrounded]{geometry}
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\begin{document}
+
+\begin{center}
+\resizebox{\textwidth}{!} 
+{
+\begin{minipage}[c]{\textwidth}
+\begin{align*}
+\intertext{given} 
+\mathit{f} & \in \mathbb{R}^{ \mathit{n}} \\
+\mathit{p} & \in \mathbb{R}^{ \mathit{n}} \\
+\\
+ \omit \span \sum_\mathit{i} {\mathit{f}_{ \mathit{i} }}^{2}\mathit{p}_{ \mathit{i} } - {\left( \sum_\mathit{i} \mathit{f}_{ \mathit{i} }\mathit{p}_{ \mathit{i} } \right)}^{2} \\
+\end{align*}
+\end{minipage}
+}
+\end{center}
+
+\end{document}

@@ -1,0 +1,346 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../static/style.css">
+<title>Convex Optimization page 680 — I❤️LA</title>
+<body>
+  <header>
+    <link href="../../static/prism.css" rel="stylesheet" />
+    <h1> Convex Optimization page 680 </h1>
+  </header>
+  <script src="../../static/prism.js"></script>
+  <div class="page">
+    
+  
+
+  
+    <div class="gallery_post">
+
+    <!-- <p>Implementing equations from Convex Optimization page 680.</p>
+ -->
+
+    
+     <p>An example from <a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization page 680</a>
+    
+    
+    
+    <p>The original equation:
+      <p><img src=../../static/gallery_res/Convex%20Optimization%20page%20680/convex_optimization_680.png alt="placeholder" width="700" style='object-fit: scale-down;'>
+    
+
+    
+      <p>I❤️LA implementation:
+      <div class="code_block" style='height: auto;'><pre ><code class="language-cpsp">[`P₁`  0
+ 0     `P₃`][    L            0
+             `P₃`ᵀC`P₂`ᵀU⁻¹  -L̃][U  L⁻¹`P₁`ᵀB
+                                 0        Ũ   ][`P₂`   0
+                                                  0    I_n]
+
+where
+
+`P₁` ∈ ℝ^(m×m) 
+`P₂` ∈ ℝ^(m×m) 
+`P₃` ∈ ℝ^(n×n) 
+  B ∈ ℝ^(m×n) 
+  C ∈ ℝ^(n×m) 
+  L ∈ ℝ^(m×m) 
+  L̃ ∈ ℝ^(n×n) 
+  U ∈ ℝ^(m×m) 
+  Ũ ∈ ℝ^(n×n)</code></pre></div>
+    
+
+    
+      
+        <p>I❤️LA compiled to C++/Eigen:
+        <div class="code_block"><pre ><code class="language-cpp">/*
+[`P₁`  0
+ 0     `P₃`][    L            0
+             `P₃`ᵀC`P₂`ᵀU⁻¹  -L̃][U  L⁻¹`P₁`ᵀB
+                                 0        Ũ   ][`P₂`   0
+                                                  0    I_n]
+
+where
+
+`P₁` ∈ ℝ^(m×m) 
+`P₂` ∈ ℝ^(m×m) 
+`P₃` ∈ ℝ^(n×n) 
+  B ∈ ℝ^(m×n) 
+  C ∈ ℝ^(n×m) 
+  L ∈ ℝ^(m×m) 
+  L̃ ∈ ℝ^(n×n) 
+  U ∈ ℝ^(m×m) 
+  Ũ ∈ ℝ^(n×n)
+*/
+#include &lt;Eigen/Core&gt;
+#include &lt;Eigen/Dense&gt;
+#include &lt;Eigen/Sparse&gt;
+#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+struct convex_optimization_680ResultType {
+    Eigen::MatrixXd ret;
+    convex_optimization_680ResultType(const Eigen::MatrixXd &amp; ret)
+    : ret(ret)
+    {}
+};
+
+convex_optimization_680ResultType convex_optimization_680(
+    const Eigen::MatrixXd &amp; P₁,
+    const Eigen::MatrixXd &amp; P₂,
+    const Eigen::MatrixXd &amp; P₃,
+    const Eigen::MatrixXd &amp; B,
+    const Eigen::MatrixXd &amp; C,
+    const Eigen::MatrixXd &amp; L,
+    const Eigen::MatrixXd &amp; L̃,
+    const Eigen::MatrixXd &amp; U,
+    const Eigen::MatrixXd &amp; Ũ)
+{
+    const long m = P₁.cols();
+    const long n = P₃.cols();
+    assert( P₁.rows() == m );
+    assert( P₂.rows() == m );
+    assert( P₂.cols() == m );
+    assert( P₃.rows() == n );
+    assert( B.rows() == m );
+    assert( B.cols() == n );
+    assert( C.rows() == n );
+    assert( C.cols() == m );
+    assert( L.rows() == m );
+    assert( L.cols() == m );
+    assert( L̃.rows() == n );
+    assert( L̃.cols() == n );
+    assert( U.rows() == m );
+    assert( U.cols() == m );
+    assert( Ũ.rows() == n );
+    assert( Ũ.cols() == n );
+
+    Eigen::MatrixXd ret_0(m+n, m+n);
+    ret_0 &lt;&lt; P₁, Eigen::MatrixXd::Zero(m, n),
+    Eigen::MatrixXd::Zero(n, m), P₃;
+    Eigen::MatrixXd ret_1(m+n, m+n);
+    ret_1 &lt;&lt; L, Eigen::MatrixXd::Zero(m, n),
+    P₃.transpose() * C * P₂.transpose() * U.inverse(), -L̃;
+    Eigen::MatrixXd ret_2(m+n, m+n);
+    ret_2 &lt;&lt; U, L.colPivHouseholderQr().solve(P₁.transpose()) * B,
+    Eigen::MatrixXd::Zero(n, m), Ũ;
+    Eigen::MatrixXd ret_3(m+n, m+n);
+    ret_3 &lt;&lt; P₂, Eigen::MatrixXd::Zero(m, n),
+    Eigen::MatrixXd::Zero(n, m), Eigen::MatrixXd::Identity(n, n);
+    Eigen::MatrixXd ret = ret_0 * ret_1 * ret_2 * ret_3;
+    return convex_optimization_680ResultType(ret);
+}
+
+
+void generateRandomData(Eigen::MatrixXd &amp; P₁,
+    Eigen::MatrixXd &amp; P₂,
+    Eigen::MatrixXd &amp; P₃,
+    Eigen::MatrixXd &amp; B,
+    Eigen::MatrixXd &amp; C,
+    Eigen::MatrixXd &amp; L,
+    Eigen::MatrixXd &amp; L̃,
+    Eigen::MatrixXd &amp; U,
+    Eigen::MatrixXd &amp; Ũ)
+{
+    const int m = rand()%10;
+    const int n = rand()%10;
+    P₁ = Eigen::MatrixXd::Random(m, m);
+    P₂ = Eigen::MatrixXd::Random(m, m);
+    P₃ = Eigen::MatrixXd::Random(n, n);
+    B = Eigen::MatrixXd::Random(m, n);
+    C = Eigen::MatrixXd::Random(n, m);
+    L = Eigen::MatrixXd::Random(m, m);
+    L̃ = Eigen::MatrixXd::Random(n, n);
+    U = Eigen::MatrixXd::Random(m, m);
+    Ũ = Eigen::MatrixXd::Random(n, n);
+}
+
+
+int main(int argc, char *argv[])
+{
+    srand((int)time(NULL));
+    Eigen::MatrixXd P₁;
+    Eigen::MatrixXd P₂;
+    Eigen::MatrixXd P₃;
+    Eigen::MatrixXd B;
+    Eigen::MatrixXd C;
+    Eigen::MatrixXd L;
+    Eigen::MatrixXd L̃;
+    Eigen::MatrixXd U;
+    Eigen::MatrixXd Ũ;
+    generateRandomData(P₁, P₂, P₃, B, C, L, L̃, U, Ũ);
+    convex_optimization_680ResultType func_value = convex_optimization_680(P₁, P₂, P₃, B, C, L, L̃, U, Ũ);
+    std::cout&lt;&lt;&#34;return value:\n&#34;&lt;&lt;func_value.ret&lt;&lt;std::endl;
+    return 0;
+}</code></pre></div>
+      
+    
+
+     
+    
+      <p>I❤️LA compiled to Python/NumPy/SciPy:
+      <div class="code_block"><pre ><code class="language-python">&#34;&#34;&#34;
+[`P₁`  0
+ 0     `P₃`][    L            0
+             `P₃`ᵀC`P₂`ᵀU⁻¹  -L̃][U  L⁻¹`P₁`ᵀB
+                                 0        Ũ   ][`P₂`   0
+                                                  0    I_n]
+
+where
+
+`P₁` ∈ ℝ^(m×m) 
+`P₂` ∈ ℝ^(m×m) 
+`P₃` ∈ ℝ^(n×n) 
+  B ∈ ℝ^(m×n) 
+  C ∈ ℝ^(n×m) 
+  L ∈ ℝ^(m×m) 
+  L̃ ∈ ℝ^(n×n) 
+  U ∈ ℝ^(m×m) 
+  Ũ ∈ ℝ^(n×n)
+&#34;&#34;&#34;
+import numpy as np
+import scipy
+import scipy.linalg
+from scipy import sparse
+from scipy.integrate import quad
+from scipy.optimize import minimize
+
+
+class convex_optimization_680ResultType:
+    def __init__( self, ret):
+        self.ret = ret
+
+
+def convex_optimization_680(P1, P2, P3, B, C, L, L̃, U, Ũ):
+    P1 = np.asarray(P1, dtype=np.float64)
+    P2 = np.asarray(P2, dtype=np.float64)
+    P3 = np.asarray(P3, dtype=np.float64)
+    B = np.asarray(B, dtype=np.float64)
+    C = np.asarray(C, dtype=np.float64)
+    L = np.asarray(L, dtype=np.float64)
+    L̃ = np.asarray(L̃, dtype=np.float64)
+    U = np.asarray(U, dtype=np.float64)
+    Ũ = np.asarray(Ũ, dtype=np.float64)
+
+    m = P1.shape[1]
+    n = P3.shape[1]
+    assert P1.shape == (m, m)
+    assert P2.shape == (m, m)
+    assert P3.shape == (n, n)
+    assert B.shape == (m, n)
+    assert C.shape == (n, m)
+    assert L.shape == (m, m)
+    assert L̃.shape == (n, n)
+    assert U.shape == (m, m)
+    assert Ũ.shape == (n, n)
+
+    ret_0 = np.block([[P1, np.zeros((m, n))], [np.zeros((n, m)), P3]])
+    ret_1 = np.block([[L, np.zeros((m, n))], [P3.T @ C @ P2.T @ np.linalg.inv(U), -L̃]])
+    ret_2 = np.block([[U, np.linalg.solve(L, P1.T) @ B], [np.zeros((n, m)), Ũ]])
+    ret_3 = np.block([[P2, np.zeros((m, n))], [np.zeros((n, m)), np.identity(n)]])
+    ret = ret_0 @ ret_1 @ ret_2 @ ret_3
+    return convex_optimization_680ResultType(ret)
+
+
+def generateRandomData():
+    m = np.random.randint(10)
+    n = np.random.randint(10)
+    P1 = np.random.randn(m, m)
+    P2 = np.random.randn(m, m)
+    P3 = np.random.randn(n, n)
+    B = np.random.randn(m, n)
+    C = np.random.randn(n, m)
+    L = np.random.randn(m, m)
+    L̃ = np.random.randn(n, n)
+    U = np.random.randn(m, m)
+    Ũ = np.random.randn(n, n)
+    return P1, P2, P3, B, C, L, L̃, U, Ũ
+
+
+if __name__ == &#39;__main__&#39;:
+    P1, P2, P3, B, C, L, L̃, U, Ũ = generateRandomData()
+    print(&#34;P1:&#34;, P1)
+    print(&#34;P2:&#34;, P2)
+    print(&#34;P3:&#34;, P3)
+    print(&#34;B:&#34;, B)
+    print(&#34;C:&#34;, C)
+    print(&#34;L:&#34;, L)
+    print(&#34;L̃:&#34;, L̃)
+    print(&#34;U:&#34;, U)
+    print(&#34;Ũ:&#34;, Ũ)
+    func_value = convex_optimization_680(P1, P2, P3, B, C, L, L̃, U, Ũ)
+    print(&#34;return value: &#34;, func_value.ret)</code></pre></div>
+    
+
+<!--      -->
+
+    
+      <p>I❤️LA compiled to LaTeX:
+      <div class="code_block"><pre ><code class="language-tex">\documentclass[12pt]{article}
+\usepackage{mathdots}
+\usepackage[bb=boondox]{mathalfa}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{libertine}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage[paperheight=8in,paperwidth=4in,margin=.3in,heightrounded]{geometry}
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\begin{document}
+
+\begin{center}
+\resizebox{\textwidth}{!} 
+{
+\begin{minipage}[c]{\textwidth}
+\begin{align*}
+ \omit \span \begin{bmatrix}
+\mathit{P₁} &amp; 0\\
+0 &amp; \mathit{P₃}\\
+\end{bmatrix}\begin{bmatrix}
+\mathit{L} &amp; 0\\
+{\mathit{P₃}}^T\mathit{C}{\mathit{P₂}}^T\mathit{U}^{-1} &amp; -\mathit{L̃}\\
+\end{bmatrix}\begin{bmatrix}
+\mathit{U} &amp; \mathit{L}^{-1}{\mathit{P₁}}^T\mathit{B}\\
+0 &amp; \mathit{Ũ}\\
+\end{bmatrix}\begin{bmatrix}
+\mathit{P₂} &amp; 0\\
+0 &amp; I_{ \mathit{n} }\\
+\end{bmatrix} \\
+\intertext{where} 
+\mathit{P₁} &amp; \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{P₂} &amp; \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{P₃} &amp; \in \mathbb{R}^{ \mathit{n} \times \mathit{n} } \\
+\mathit{B} &amp; \in \mathbb{R}^{ \mathit{m} \times \mathit{n} } \\
+\mathit{C} &amp; \in \mathbb{R}^{ \mathit{n} \times \mathit{m} } \\
+\mathit{L} &amp; \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{L̃} &amp; \in \mathbb{R}^{ \mathit{n} \times \mathit{n} } \\
+\mathit{U} &amp; \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{Ũ} &amp; \in \mathbb{R}^{ \mathit{n} \times \mathit{n} } \\
+\\
+\end{align*}
+\end{minipage}
+}
+\end{center}
+
+\end{document}
+</code></pre></div>
+    
+
+    
+
+      <p>I❤️LA LaTeX output:
+      <div>
+      <iframe src=../../static/gallery_res/Convex%20Optimization%20page%20680/convex_optimization_680.pdf frameborder="0" width="700" height="1000"><br>
+      </div>
+    
+    </div>
+  
+
+
+ 
+
+
+
+  </div>
+</body>

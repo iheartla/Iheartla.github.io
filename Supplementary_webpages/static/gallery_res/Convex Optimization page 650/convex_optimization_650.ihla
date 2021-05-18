@@ -1,0 +1,8 @@
+given
+A ∈ ℝ^(k×k) 
+B ∈ ℝ^(k×m) 
+C ∈ ℝ^(m×m) 
+
+S = C - BᵀA⁻¹B
+[A⁻¹+A⁻¹BS⁻¹BᵀA⁻¹   -A⁻¹BS⁻¹
+   -S⁻¹BᵀA⁻¹           S⁻¹]

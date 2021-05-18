@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{mathdots}
+\usepackage[bb=boondox]{mathalfa}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{libertine}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage[paperheight=8in,paperwidth=4in,margin=.3in,heightrounded]{geometry}
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\begin{document}
+
+\begin{center}
+\resizebox{\textwidth}{!} 
+{
+\begin{minipage}[c]{\textwidth}
+\begin{align*}
+\intertext{given} 
+\mathit{α}_{\mathit{T}} & \in \mathbb{R} \\
+\mathit{n}_{\mathit{T}} & \in \mathbb{R}^{ 3} \\
+\\
+\mathit{n(v)} & = \frac{\sum_{\mathit{T} \in \mathit{N₁}_{ \mathit{v} } } \mathit{α}_{ \mathit{T} }\mathit{n}_{ \mathit{T} }}{\left\|\sum_{\mathit{T} \in \mathit{N₁}_{ \mathit{v} } } \mathit{α}_{ \mathit{T} }\mathit{n}_{ \mathit{T} }\right\|_2} \\
+\intertext{where} 
+\mathit{v} & \in \mathbb{Z} \\
+\mathit{N₁}_{\mathit{i}} & \in \{\mathbb{Z}\} \\
+\\
+\end{align*}
+\end{minipage}
+}
+\end{center}
+
+\end{document}

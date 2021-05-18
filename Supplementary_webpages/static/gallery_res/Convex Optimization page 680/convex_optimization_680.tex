@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\usepackage{mathdots}
+\usepackage[bb=boondox]{mathalfa}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{libertine}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage[paperheight=8in,paperwidth=4in,margin=.3in,heightrounded]{geometry}
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+\begin{document}
+
+\begin{center}
+\resizebox{\textwidth}{!} 
+{
+\begin{minipage}[c]{\textwidth}
+\begin{align*}
+ \omit \span \begin{bmatrix}
+\mathit{P₁} & 0\\
+0 & \mathit{P₃}\\
+\end{bmatrix}\begin{bmatrix}
+\mathit{L} & 0\\
+{\mathit{P₃}}^T\mathit{C}{\mathit{P₂}}^T\mathit{U}^{-1} & -\mathit{L̃}\\
+\end{bmatrix}\begin{bmatrix}
+\mathit{U} & \mathit{L}^{-1}{\mathit{P₁}}^T\mathit{B}\\
+0 & \mathit{Ũ}\\
+\end{bmatrix}\begin{bmatrix}
+\mathit{P₂} & 0\\
+0 & I_{ \mathit{n} }\\
+\end{bmatrix} \\
+\intertext{where} 
+\mathit{P₁} & \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{P₂} & \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{P₃} & \in \mathbb{R}^{ \mathit{n} \times \mathit{n} } \\
+\mathit{B} & \in \mathbb{R}^{ \mathit{m} \times \mathit{n} } \\
+\mathit{C} & \in \mathbb{R}^{ \mathit{n} \times \mathit{m} } \\
+\mathit{L} & \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{L̃} & \in \mathbb{R}^{ \mathit{n} \times \mathit{n} } \\
+\mathit{U} & \in \mathbb{R}^{ \mathit{m} \times \mathit{m} } \\
+\mathit{Ũ} & \in \mathbb{R}^{ \mathit{n} \times \mathit{n} } \\
+\\
+\end{align*}
+\end{minipage}
+}
+\end{center}
+
+\end{document}
