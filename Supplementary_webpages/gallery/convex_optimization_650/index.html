@@ -178,7 +178,46 @@ if __name__ == &#39;__main__&#39;:
     print(&#34;return value: &#34;, func_value.ret)</code></pre></div>
     
 
-<!--      -->
+    
+      <p>I❤️LA compiled to Matlab:
+      <div class="code_block"><pre ><code class="language-matlab">function output = convex_optimization_650(A, B, C)
+% output = convex_optimization_650(A, B, C)
+%
+%    given
+%    A ∈ ℝ^(k×k) 
+%    B ∈ ℝ^(k×m) 
+%    C ∈ ℝ^(m×m) 
+%    
+%    S = C - BᵀA⁻¹B
+%    [A⁻¹+A⁻¹BS⁻¹BᵀA⁻¹   -A⁻¹BS⁻¹
+%       -S⁻¹BᵀA⁻¹           S⁻¹]
+    if nargin==0
+        warning(&#39;generating random input data&#39;);
+        [A, B, C] = generateRandomData();
+    end
+    function [A, B, C] = generateRandomData()
+        k = randi(10);
+        m = randi(10);
+        A = randn(k, k);
+        B = randn(k, m);
+        C = randn(m, m);
+    end
+
+    k = size(A, 2);
+    m = size(B, 2);
+    assert( isequal(size(A), [k, k]) );
+    assert( isequal(size(B), [k, m]) );
+    assert( isequal(size(C), [m, m]) );
+
+    S = C - B&#39; * (A\B);
+    ret_0 = [[inv(A) + (A\B) * (S\B&#39;) * inv(A), -(A\B) * inv(S)]; [-(S\B&#39;) * inv(A), inv(S)]];
+    ret = ret_0;
+    output.S = S;
+
+    output.ret = ret;
+end
+</code></pre></div>
+    
 
     
       <p>I❤️LA compiled to LaTeX:

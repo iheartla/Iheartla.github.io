@@ -91,7 +91,41 @@ if __name__ == &#39;__main__&#39;:
     print(&#34;return value: &#34;, func_value.H_left_parenthesis_p_right_parenthesis)</code></pre></div>
     
 
-<!--      -->
+    
+      <p>I❤️LA compiled to Matlab:
+      <div class="code_block"><pre ><code class="language-matlab">function output = course_curvature(p, k_n)
+% output = course_curvature(p, `kₙ`)
+%
+%    `H(p)` = 1/(2π)∫_[0, 2π] `kₙ`(φ, p) ∂φ
+%    
+%    where 
+%    
+%    p ∈ ℝ^3 : point on the surface
+%    `kₙ`: ℝ,ℝ^3 → ℝ : normal curvature
+    if nargin==0
+        warning(&#39;generating random input data&#39;);
+        [p, k_n] = generateRandomData();
+    end
+    function [p, k_n] = generateRandomData()
+        p = randn(3,1);
+        k_n = @k_nFunc;
+        rseed = randi(2^32);
+        function tmp =  k_nFunc(p0, p1)
+            rng(rseed);
+            tmp = randn();
+        end
+
+    end
+
+    p = reshape(p,[],1);
+
+    assert( numel(p) == 3 );
+
+    H_p = 1 / (2 * pi) * integral(@(phi) k_n(phi, p), 0, 2 * pi,&#39;ArrayValued&#39;,true);
+    output.H_p = H_p;
+end
+</code></pre></div>
+    
 
     
       <p>I❤️LA compiled to LaTeX:

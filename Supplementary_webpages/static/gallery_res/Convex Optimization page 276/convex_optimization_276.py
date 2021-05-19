@@ -40,12 +40,12 @@ def convex_optimization_276(A, b, x0):
 def generateRandomData():
     dim_0 = np.random.randint(10)
     n = np.random.randint(10)
-    b = []
     A = []
+    b = []
     for i in range(dim_0):
         m_0 = np.random.randint(10)
-        b.append(np.random.randn(m_0))
         A.append(np.random.randn(m_0, n))
+        b.append(np.random.randn(m_0))
     x0 = np.random.randn(n)
     return A, b, x0
 

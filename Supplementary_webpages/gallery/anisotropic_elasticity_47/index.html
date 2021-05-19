@@ -156,7 +156,40 @@ if __name__ == &#39;__main__&#39;:
     print(&#34;return value: &#34;, func_value.κ_angle_left_parenthesis_Dₘ_right_parenthesis)</code></pre></div>
     
 
-<!--      -->
+    
+      <p>I❤️LA compiled to Matlab:
+      <div class="code_block"><pre ><code class="language-matlab">function output = anisotropic_elasticity_47(D_m, v)
+% output = anisotropic_elasticity_47(`Dₘ`, v)
+%
+%    from linearalgebra: tr
+%    
+%    `J₃` = 1₃,₃
+%    `κ_angle(Dₘ)` = 3(√2 v)^(2/3)(7/4‖`Dₘ`‖_F^2-1/4tr(`J₃``Dₘ`ᵀ`Dₘ`))⁻¹
+%    
+%    where
+%    
+%    `Dₘ` ∈ ℝ^(3×3)  
+%    v ∈ ℝ
+    if nargin==0
+        warning(&#39;generating random input data&#39;);
+        [D_m, v] = generateRandomData();
+    end
+    function [D_m, v] = generateRandomData()
+        v = randn();
+        D_m = randn(3, 3);
+    end
+
+    assert( isequal(size(D_m), [3, 3]) );
+    assert(numel(v) == 1);
+
+    J3 = ones(3, 3);
+    kappa_angle_D_m = 3 * (sqrt(2) * v).^(2 / 3) * 1 / ((7 / 4 * norm(D_m, &#39;fro&#39;).^2 - 1 / 4 * trace(J3 * D_m&#39; * D_m)));
+    output.J3 = J3;
+
+    output.kappa_angle_D_m = kappa_angle_D_m;
+end
+</code></pre></div>
+    
 
     
       <p>I❤️LA compiled to LaTeX:

@@ -32,13 +32,13 @@ def delta_mush_1(w, M, u):
     assert w.shape == (n, m)
     assert M.shape == (dim_0, 4, 4)
     assert u.shape == (dim_1, 4, )
-    assert dim_0 == m 
-    assert n == dim_1 
+    assert m == dim_0 
+    assert dim_1 == n 
 
     v = np.zeros((dim_1, 4, ))
     for i in range(1, dim_1+1):
         sum_0 = np.zeros((4, ))
-        for j in range(1, len(M)+1):
+        for j in range(1, w.shape[1]+1):
             sum_0 += w[i-1, j-1] * M[j-1] @ u[i-1]
         v[i-1] = sum_0
     return delta_mush_1ResultType(v)

@@ -30,13 +30,13 @@ delta_mush_1ResultType delta_mush_1(
     const long dim_0 = M.size();
     const long dim_1 = u.size();
     assert( w.rows() == n );
-    assert( dim_0 == m );
-    assert( n == dim_1 );
+    assert( m == dim_0 );
+    assert( dim_1 == n );
 
     std::vector<Eigen::Matrix<double, 4, 1>> v(dim_1);
     for( int i=1; i<=dim_1; i++){
         Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(4, 1);
-        for(int j=1; j<=M.size(); j++){
+        for(int j=1; j<=w.cols(); j++){
             sum_0 += w(i-1, j-1) * M.at(j-1) * u.at(i-1);
         }
         v.at(i-1) = sum_0;

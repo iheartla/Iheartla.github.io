@@ -85,14 +85,14 @@ pmp_42ResultType pmp_42(
     assert( n.size() == dim_0 );
 
     Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(3, 1);
-    for(int T=1; T&lt;=n.size(); T++){
+    for(int T=1; T&lt;=α.size(); T++){
         std::set&lt;int &gt; set_0 = N₁.at(v-1);
         if(set_0.find(int(T)) != set_0.end()){
             sum_0 += α.at(T-1) * n.at(T-1);
         }
     }
     Eigen::MatrixXd sum_1 = Eigen::MatrixXd::Zero(3, 1);
-    for(int T=1; T&lt;=n.size(); T++){
+    for(int T=1; T&lt;=α.size(); T++){
         std::set&lt;int &gt; set_1 = N₁.at(v-1);
         if(set_1.find(int(T)) != set_1.end()){
             sum_1 += α.at(T-1) * n.at(T-1);
@@ -187,11 +187,11 @@ def pmp_42(α, n, v, N1):
     assert np.ndim(v) == 0
 
     sum_0 = np.zeros((3, ))
-    for T in range(1, len(n)+1):
+    for T in range(1, len(α)+1):
         if((T) in N1[v-1]):
             sum_0 += α[T-1] * n[T-1]
     sum_1 = np.zeros((3, ))
-    for T in range(1, len(n)+1):
+    for T in range(1, len(α)+1):
         if((T) in N1[v-1]):
             sum_1 += α[T-1] * n[T-1]
     n_left_parenthesis_v_right_parenthesis = (sum_0) / np.linalg.norm(sum_1, 2)
@@ -225,7 +225,66 @@ if __name__ == &#39;__main__&#39;:
     print(&#34;return value: &#34;, func_value.n_left_parenthesis_v_right_parenthesis)</code></pre></div>
     
 
-<!--      -->
+    
+      <p>I❤️LA compiled to Matlab:
+      <div class="code_block"><pre ><code class="language-matlab">function output = pmp_42(alpha, n, v, N1)
+% output = pmp_42(α, n, v, `N₁`)
+%
+%    given
+%    α_T : ℝ
+%    n_T : ℝ³
+%    
+%    `n(v)` = ( ∑_(T for T ∈ `N₁`_v) α_T n_T )/‖ ∑_(T for T ∈ `N₁`_v) α_T n_T ‖
+%    
+%    where
+%    v ∈ ℤ
+%    `N₁`_i ∈ {ℤ}
+    if nargin==0
+        warning(&#39;generating random input data&#39;);
+        [alpha, n, v, N1] = generateRandomData();
+    end
+    function [alpha, n, v, N1] = generateRandomData()
+        v = randi(10);
+        dim_0 = randi(10);
+        dim_1 = randi(10);
+        alpha = randn(dim_0,1);
+        n = randn(dim_0,3);
+        N1 = {};
+        for i = 1:dim_1
+            N1_tmp = [];
+            dim_4 = randi(10);
+            for j = 1:dim_4 
+                N1_tmp = [N1_tmp;randi(10)];
+            end
+            N1 = [N1, N1_tmp];
+        end
+    end
+
+    alpha = reshape(alpha,[],1);
+
+    dim_0 = size(alpha, 1);
+    dim_1 = size(N1, 1);
+    assert( size(alpha,1) == dim_0 );
+    assert( isequal(size(n), [dim_0, 3]) );
+    assert(numel(v) == 1);
+
+    sum_0 = zeros(3,1);
+    for T = 1:size(size(alpha, 1),1)
+        if ismember([T],N1{v},&#39;rows&#39;)
+          sum_0 = sum_0 + alpha(T) * n(T,:)&#39;;
+        end
+    end
+    sum_1 = zeros(3,1);
+    for T = 1:size(size(alpha, 1),1)
+        if ismember([T],N1{v},&#39;rows&#39;)
+          sum_1 = sum_1 + alpha(T) * n(T,:)&#39;;
+        end
+    end
+    n_v = (sum_0) / norm(sum_1, 2);
+    output.n_v = n_v;
+end
+</code></pre></div>
+    
 
     
       <p>I❤️LA compiled to LaTeX:

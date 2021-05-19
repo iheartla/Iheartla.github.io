@@ -32,7 +32,7 @@ convex_optimization_208ResultType convex_optimization_208(
         double sum_1 = 0;
         for(int j=1; j<=x.size(); j++){
             double sum_2 = 0;
-            for(int k=1; k<=p.cols(); k++){
+            for(int k=1; k<=x.size(); k++){
                 sum_2 += x[k-1] * p(i-1, k-1);
             }
             sum_1 += x[j-1] * p(i-1, j-1) * (log10(p(i-1, j-1) / double(sum_2)) / log10(2));

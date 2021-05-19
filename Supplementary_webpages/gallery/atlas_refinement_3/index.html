@@ -88,7 +88,7 @@ atlas_refinement_3ResultType atlas_refinement_3(
     assert( s_circumflex_accent_k.size() == dim_0 );
 
     Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(2, 1);
-    for(int j=1; j&lt;=s_circumflex_accent_k.size(); j++){
+    for(int j=1; j&lt;=b.size(); j++){
         sum_0 += l.at(j-1) * exp(-pow(dist(bᵢ, b.at(j-1)), 2) / double((2 * pow(σ, 2)))) * s_circumflex_accent_k.at(j-1);
     }
     Eigen::Matrix&lt;double, 2, 1&gt; G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0;
@@ -188,7 +188,7 @@ def atlas_refinement_3(l, dist, bᵢ, b, σ, s_circumflex_accent_k):
     assert s_circumflex_accent_k.shape == (dim_0, 2, )
 
     sum_0 = np.zeros((2, ))
-    for j in range(1, len(s_circumflex_accent_k)+1):
+    for j in range(1, len(b)+1):
         sum_0 += l[j-1] * np.exp(-np.power(dist(bᵢ, b[j-1]), 2) / (2 * np.power(σ, 2))) * s_circumflex_accent_k[j-1]
     G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0
     return atlas_refinement_3ResultType(G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis)
@@ -218,7 +218,59 @@ if __name__ == &#39;__main__&#39;:
     print(&#34;return value: &#34;, func_value.G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis)</code></pre></div>
     
 
-<!--      -->
+    
+      <p>I❤️LA compiled to Matlab:
+      <div class="code_block"><pre ><code class="language-matlab">function output = atlas_refinement_3(l, dist, b_i, b, sigma, s_k)
+% output = atlas_refinement_3(l, dist, `bᵢ`, b, σ, `s^k`)
+%
+%    `G_σ(s^k_i)` = ∑_j l_j exp(-dist(`bᵢ`, b_j)²/(2σ²)) `s^k`_j
+%    
+%    where
+%    l_j ∈ ℝ : the length of bj
+%    dist: ℝ², ℝ² → ℝ : measures the geodesic distance 
+%    `bᵢ` ∈ ℝ²
+%    b_j ∈ ℝ²
+%    σ ∈ ℝ
+%    `s^k`_j ∈ ℝ² : direction vector
+    if nargin==0
+        warning(&#39;generating random input data&#39;);
+        [l, dist, b_i, b, sigma, s_k] = generateRandomData();
+    end
+    function [l, dist, b_i, b, sigma, s_k] = generateRandomData()
+        sigma = randn();
+        dim_0 = randi(10);
+        l = randn(dim_0,1);
+        dist = @distFunc;
+        rseed = randi(2^32);
+        function tmp =  distFunc(p0, p1)
+            rng(rseed);
+            tmp = randn();
+        end
+
+        b_i = randn(2,1);
+        b = randn(dim_0,2);
+        s_k = randn(dim_0,2);
+    end
+
+    l = reshape(l,[],1);
+    b_i = reshape(b_i,[],1);
+
+    dim_0 = size(l, 1);
+    assert( size(l,1) == dim_0 );
+    assert( numel(b_i) == 2 );
+    assert( isequal(size(b), [dim_0, 2]) );
+    assert(numel(sigma) == 1);
+    assert( isequal(size(s_k), [dim_0, 2]) );
+
+    sum_0 = zeros(2,1);
+    for j = 1:size(size(b, 1),1)
+        sum_0 = sum_0 + l(j) * exp(-dist(b_i, b(j,:)&#39;).^2 / (2 * sigma.^2)) * s_k(j,:)&#39;;
+    end
+    G_sigma_s_k_i = sum_0;
+    output.G_sigma_s_k_i = G_sigma_s_k_i;
+end
+</code></pre></div>
+    
 
     
       <p>I❤️LA compiled to LaTeX:
