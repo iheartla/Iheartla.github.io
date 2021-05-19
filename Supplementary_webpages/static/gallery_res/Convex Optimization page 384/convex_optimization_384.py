@@ -44,7 +44,7 @@ def convex_optimization_384(a, x, w):
     for i in range(1, len(a)+1):
         sum_0 += (a[i-1]).reshape(n, 1) @ a[i-1].T.reshape(1, n)
     sum_1 = np.zeros((n, ))
-    for i in range(1, len(a)+1):
+    for i in range(1, len(y)+1):
         sum_1 += y[i-1] * a[i-1]
     x̂ = np.linalg.solve((sum_0), sum_1)
     return convex_optimization_384ResultType(y, x̂)

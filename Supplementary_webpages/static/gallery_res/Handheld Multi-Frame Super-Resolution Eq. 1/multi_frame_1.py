@@ -37,9 +37,9 @@ def multi_frame_1(c, w, R̂):
     assert R̂.shape == (f,)
 
     sum_0 = 0
-    for n in range(1, c.shape[0]+1):
+    for n in range(1, w.shape[0]+1):
         sum_1 = 0
-        for i in range(1, c.shape[1]+1):
+        for i in range(1, w.shape[1]+1):
             sum_1 += c[n-1, i-1] * w[n-1, i-1] * R̂[n-1]
         sum_0 += sum_1
     sum_2 = 0

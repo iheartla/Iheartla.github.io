@@ -1,7 +1,7 @@
 """
 given
-A_i ∈ ℝ^(m × n)  
-b_i ∈ ℝ^m  
+A_i ∈ ℝ^(m_i × n)  
+b_i ∈ ℝ^m_i 
 `x₀` ∈ ℝ^n  
 
 min_(x ∈ ℝ^n) ∑_i ‖A_i x + b_i‖ + (1/2)‖x-`x₀`‖²
@@ -20,20 +20,17 @@ class convex_optimization_276ResultType:
 
 
 def convex_optimization_276(A, b, x0):
-    A = np.asarray(A, dtype=np.float64)
-    b = np.asarray(b, dtype=np.float64)
+    A = np.asarray(A)
+    b = np.asarray(b)
     x0 = np.asarray(x0, dtype=np.float64)
 
     dim_0 = A.shape[0]
-    m = A.shape[1]
-    n = A.shape[2]
-    assert A.shape == (dim_0, m, n)
-    assert b.shape == (dim_0, m, )
+    n = A[0].shape[1]
     assert x0.shape == (n,)
 
     def target_0(x):
         sum_0 = 0
-        for i in range(1, len(A)+1):
+        for i in range(1, len(b)+1):
             sum_0 += np.linalg.norm(A[i-1] @ x + b[i-1], 2)
         return sum_0 + (1 / 2) * np.power(np.linalg.norm(x - x0, 2), 2)
     ret = minimize(target_0, np.zeros(n)).fun
@@ -42,10 +39,13 @@ def convex_optimization_276(A, b, x0):
 
 def generateRandomData():
     dim_0 = np.random.randint(10)
-    m = np.random.randint(10)
     n = np.random.randint(10)
-    A = np.random.randn(dim_0, m, n)
-    b = np.random.randn(dim_0, m, )
+    b = []
+    A = []
+    for i in range(dim_0):
+        m_0 = np.random.randint(10)
+        b.append(np.random.randn(m_0))
+        A.append(np.random.randn(m_0, n))
     x0 = np.random.randn(n)
     return A, b, x0
 

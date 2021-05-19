@@ -34,7 +34,7 @@ def pmp_74(v, u, M, A):
     assert A.shape == (dim_0,)
 
     sum_0 = 0
-    for T in range(1, len(M)+1):
+    for T in range(1, len(v)+1):
         E_LSCM_0 = np.zeros((2, 2))
         E_LSCM_0[0] = [0, -1]
         E_LSCM_0[1] = [1, 0]

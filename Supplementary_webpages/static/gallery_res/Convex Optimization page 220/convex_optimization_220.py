@@ -31,7 +31,7 @@ def convex_optimization_220(x, W, ν):
     assert ν.shape == (n,)
 
     sum_0 = 0
-    for i in range(1, len(ν)+1):
+    for i in range(1, len(x)+1):
         sum_0 += ν[i-1] * (np.power(x[i-1], 2) - 1)
     L_left_parenthesis_x_comma_ν_right_parenthesis = (x.T.reshape(1, n) @ W @ x).item() + sum_0
     return convex_optimization_220ResultType(L_left_parenthesis_x_comma_ν_right_parenthesis)

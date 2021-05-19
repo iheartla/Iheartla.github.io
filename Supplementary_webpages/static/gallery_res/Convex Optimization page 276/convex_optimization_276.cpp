@@ -1,7 +1,7 @@
 /*
 given
-A_i ∈ ℝ^(m × n)  
-b_i ∈ ℝ^m  
+A_i ∈ ℝ^(m_i × n)  
+b_i ∈ ℝ^m_i 
 `x₀` ∈ ℝ^n  
 
 min_(x ∈ ℝ^n) ∑_i ‖A_i x + b_i‖ + (1/2)‖x-`x₀`‖²
@@ -25,17 +25,9 @@ convex_optimization_276ResultType convex_optimization_276(
     const Eigen::VectorXd & x₀)
 {
     const long dim_0 = A.size();
-    const long m = A[0].rows();
     const long n = A[0].cols();
     assert( A.size() == dim_0 );
-    for( const auto& el : A ) {
-        assert( el.rows() == m );
-        assert( el.cols() == n );
-    }
     assert( b.size() == dim_0 );
-    for( const auto& el : b ) {
-        assert( el.size() == m );
-    }
     assert( x₀.size() == n );
 
     double ret = ;
@@ -48,15 +40,13 @@ void generateRandomData(std::vector<Eigen::MatrixXd> & A,
     Eigen::VectorXd & x₀)
 {
     const int dim_0 = rand()%10;
-    const int m = rand()%10;
     const int n = rand()%10;
+    b.resize(dim_0);
     A.resize(dim_0);
     for(int i=0; i<dim_0; i++){
-        A[i] = Eigen::MatrixXd::Random(m, n);
-    }
-    b.resize(dim_0);
-    for(int i=0; i<dim_0; i++){
-        b[i] = Eigen::VectorXd::Random(m);
+        int m_1 = rand()%10;
+        b[i] = Eigen::VectorXd::Random(m_1);
+        A[i] = Eigen::MatrixXd::Random(m_1, n);
     }
     x₀ = Eigen::VectorXd::Random(n);
 }
