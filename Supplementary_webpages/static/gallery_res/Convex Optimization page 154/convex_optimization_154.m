@@ -24,11 +24,11 @@ function output = convex_optimization_154(f, p)
     assert( numel(p) == n );
 
     sum_0 = 0;
-    for i = 1:size(p,1)
+    for i = 1:size(f,1)
         sum_0 = sum_0 + f(i).^2 * p(i);
     end
     sum_1 = 0;
-    for i = 1:size(p,1)
+    for i = 1:size(f,1)
         sum_1 = sum_1 + f(i) * p(i);
     end
     ret = sum_0 - (sum_1).^2;

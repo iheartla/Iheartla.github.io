@@ -73,13 +73,13 @@ delta_mush_1ResultType delta_mush_1(
     const long dim_0 = M.size();
     const long dim_1 = u.size();
     assert( w.rows() == n );
-    assert( m == dim_0 );
+    assert( dim_0 == m );
     assert( n == dim_1 );
 
     std::vector&lt;Eigen::Matrix&lt;double, 4, 1&gt;&gt; v(dim_1);
     for( int i=1; i&lt;=dim_1; i++){
         Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(4, 1);
-        for(int j=1; j&lt;=w.cols(); j++){
+        for(int j=1; j&lt;=M.size(); j++){
             sum_0 += w(i-1, j-1) * M.at(j-1) * u.at(i-1);
         }
         v.at(i-1) = sum_0;
@@ -163,13 +163,13 @@ def delta_mush_1(w, M, u):
     assert w.shape == (n, m)
     assert M.shape == (dim_0, 4, 4)
     assert u.shape == (dim_1, 4, )
-    assert m == dim_0 
+    assert dim_0 == m 
     assert n == dim_1 
 
     v = np.zeros((dim_1, 4, ))
     for i in range(1, dim_1+1):
         sum_0 = np.zeros((4, ))
-        for j in range(1, w.shape[1]+1):
+        for j in range(1, len(M)+1):
             sum_0 += w[i-1, j-1] * M[j-1] @ u[i-1]
         v[i-1] = sum_0
     return delta_mush_1ResultType(v)
@@ -228,13 +228,13 @@ if __name__ == &#39;__main__&#39;:
     assert( isequal(size(w), [n, m]) );
     assert( isequal(size(M), [dim_0, 4, 4]) );
     assert( isequal(size(u), [dim_1, 4]) );
-    assert( m == dim_0 );
+    assert( dim_0 == m );
     assert( n == dim_1 );
 
     v = zeros(dim_1, 4);
     for i = 1:dim_1
         sum_0 = zeros(4,1);
-        for j = 1:size(w,2)
+        for j = 1:size(M, 1)
             sum_0 = sum_0 + w(i, j) * squeeze(M(j,:,:)) * u(i,:)&#39;;
         end
         v(i,:) = (sum_0)&#39;;

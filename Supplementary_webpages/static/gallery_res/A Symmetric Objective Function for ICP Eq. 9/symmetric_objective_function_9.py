@@ -50,7 +50,7 @@ def symmetric_objective_function_9(a, θ, p, q, n, t):
     t̃ = t / np.cos(θ)
     ã = a * np.tan(θ)
     sum_0 = 0
-    for i in range(1, len(q)+1):
+    for i in range(1, len(p)+1):
         sum_0 += np.power(np.cos(θ), 2) * np.power((np.dot(((p[i-1] - q[i-1])).ravel(), (n[i-1]).ravel()) + np.dot(((np.cross((p[i-1] + q[i-1]), n[i-1]))).ravel(), (ã).ravel()) + np.dot((n[i-1]).ravel(), (t̃).ravel())), 2)
     ret = sum_0
     return symmetric_objective_function_9ResultType(t̃, ã, ret)

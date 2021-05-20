@@ -61,7 +61,7 @@ function output = morphable_model_5(sigma_N, E_I, alpha, beta, sigma_S, sigma_T,
         sum_1 = sum_1 + beta(j).^2 / sigma_T(j).^2;
     end
     sum_2 = 0;
-    for j = 1:size(rho, 1)
+    for j = 1:size(rho_bar, 1)
         sum_2 = sum_2 + (rho(j) - rho_bar(j)).^2 / sigma_rho(j).^2;
     end
     E = 1 / sigma_N.^2 * E_I + sum_0 + sum_1 + sum_2;

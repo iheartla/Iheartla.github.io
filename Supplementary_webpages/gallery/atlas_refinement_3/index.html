@@ -88,7 +88,7 @@ atlas_refinement_3ResultType atlas_refinement_3(
     assert( s_circumflex_accent_k.size() == dim_0 );
 
     Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(2, 1);
-    for(int j=1; j&lt;=b.size(); j++){
+    for(int j=1; j&lt;=s_circumflex_accent_k.size(); j++){
         sum_0 += l.at(j-1) * exp(-pow(dist(bᵢ, b.at(j-1)), 2) / double((2 * pow(σ, 2)))) * s_circumflex_accent_k.at(j-1);
     }
     Eigen::Matrix&lt;double, 2, 1&gt; G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0;
@@ -188,7 +188,7 @@ def atlas_refinement_3(l, dist, bᵢ, b, σ, s_circumflex_accent_k):
     assert s_circumflex_accent_k.shape == (dim_0, 2, )
 
     sum_0 = np.zeros((2, ))
-    for j in range(1, len(b)+1):
+    for j in range(1, len(s_circumflex_accent_k)+1):
         sum_0 += l[j-1] * np.exp(-np.power(dist(bᵢ, b[j-1]), 2) / (2 * np.power(σ, 2))) * s_circumflex_accent_k[j-1]
     G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0
     return atlas_refinement_3ResultType(G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis)
@@ -263,7 +263,7 @@ if __name__ == &#39;__main__&#39;:
     assert( isequal(size(s_k), [dim_0, 2]) );
 
     sum_0 = zeros(2,1);
-    for j = 1:size(b, 1)
+    for j = 1:size(s_k, 1)
         sum_0 = sum_0 + l(j) * exp(-dist(b_i, b(j,:)&#39;).^2 / (2 * sigma.^2)) * s_k(j,:)&#39;;
     end
     G_sigma_s_k_i = sum_0;
@@ -294,14 +294,14 @@ end
 {
 \begin{minipage}[c]{\textwidth}
 \begin{align*}
-\mathit{G\_σ(s\^k\_i)} &amp; = \sum_\mathit{j} \mathit{l}_{ \mathit{j} }exp\left( -\frac{{\mathit{dist}\left( \mathit{b\textsubscript{i}},\mathit{b}_{ \mathit{j} } \right)}^{2}}{2{\mathit{σ}}^{2}} \right)\mathit{s\^k}_{ \mathit{j} } \\
+\textit{G\_σ(s\^k\_i)} &amp; = \sum_\mathit{j} \mathit{l}_{ \mathit{j} }exp\left( -\frac{{\mathit{dist}\left( \textit{b\textsubscript{i}},\mathit{b}_{ \mathit{j} } \right)}^{2}}{2{\mathit{σ}}^{2}} \right)\textit{s\^k}_{ \mathit{j} } \\
 \intertext{where} 
 \mathit{l}_{\mathit{j}} &amp; \in \mathbb{R} \text{ the length of bj} \\
 \mathit{dist} &amp; \in \mathbb{R}^{ 2},\mathbb{R}^{ 2}\rightarrow \mathbb{R} \text{ measures the geodesic distance } \\
-\mathit{b\textsubscript{i}} &amp; \in \mathbb{R}^{ 2} \\
+\textit{b\textsubscript{i}} &amp; \in \mathbb{R}^{ 2} \\
 \mathit{b}_{\mathit{j}} &amp; \in \mathbb{R}^{ 2} \\
 \mathit{σ} &amp; \in \mathbb{R} \\
-\mathit{s\^k}_{\mathit{j}} &amp; \in \mathbb{R}^{ 2} \text{ direction vector} \\
+\textit{s\^k}_{\mathit{j}} &amp; \in \mathbb{R}^{ 2} \text{ direction vector} \\
 \\
 \end{align*}
 \end{minipage}

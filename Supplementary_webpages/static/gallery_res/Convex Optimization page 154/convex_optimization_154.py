@@ -27,10 +27,10 @@ def convex_optimization_154(f, p):
     assert p.shape == (n,)
 
     sum_0 = 0
-    for i in range(1, len(p)+1):
+    for i in range(1, len(f)+1):
         sum_0 += np.power(f[i-1], 2) * p[i-1]
     sum_1 = 0
-    for i in range(1, len(p)+1):
+    for i in range(1, len(f)+1):
         sum_1 += f[i-1] * p[i-1]
     ret = sum_0 - np.power((sum_1), 2)
     return convex_optimization_154ResultType(ret)

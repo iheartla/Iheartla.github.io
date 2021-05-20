@@ -30,7 +30,7 @@ def convex_optimization_276(A, b, x0):
 
     def target_0(x):
         sum_0 = 0
-        for i in range(1, len(b)+1):
+        for i in range(1, len(A)+1):
             sum_0 += np.linalg.norm(A[i-1] @ x + b[i-1], 2)
         return sum_0 + (1 / 2) * np.power(np.linalg.norm(x - x0, 2), 2)
     ret = minimize(target_0, np.zeros(n)).fun

@@ -84,15 +84,15 @@ multi_frame_1ResultType multi_frame_1(
     assert( R̂.size() == f );
 
     double sum_0 = 0;
-    for(int n=1; n&lt;=R̂.size(); n++){
+    for(int n=1; n&lt;=w.rows(); n++){
         double sum_1 = 0;
-        for(int i=1; i&lt;=c.cols(); i++){
+        for(int i=1; i&lt;=w.cols(); i++){
             sum_1 += c(n-1, i-1) * w(n-1, i-1) * R̂[n-1];
         }
         sum_0 += sum_1;
     }
     double sum_2 = 0;
-    for(int n=1; n&lt;=R̂.size(); n++){
+    for(int n=1; n&lt;=w.rows(); n++){
         double sum_3 = 0;
         for(int i=1; i&lt;=w.cols(); i++){
             sum_3 += w(n-1, i-1) * R̂[n-1];
@@ -173,13 +173,13 @@ def multi_frame_1(c, w, R̂):
     assert R̂.shape == (f,)
 
     sum_0 = 0
-    for n in range(1, len(R̂)+1):
+    for n in range(1, w.shape[0]+1):
         sum_1 = 0
-        for i in range(1, c.shape[1]+1):
+        for i in range(1, w.shape[1]+1):
             sum_1 += c[n-1, i-1] * w[n-1, i-1] * R̂[n-1]
         sum_0 += sum_1
     sum_2 = 0
-    for n in range(1, len(R̂)+1):
+    for n in range(1, w.shape[0]+1):
         sum_3 = 0
         for i in range(1, w.shape[1]+1):
             sum_3 += w[n-1, i-1] * R̂[n-1]
@@ -239,15 +239,15 @@ if __name__ == &#39;__main__&#39;:
     assert( numel(R_hat) == f );
 
     sum_0 = 0;
-    for n = 1:size(R_hat,1)
+    for n = 1:size(w,1)
         sum_1 = 0;
-        for i = 1:size(c,2)
+        for i = 1:size(w,2)
             sum_1 = sum_1 + c(n, i) * w(n, i) * R_hat(n);
         end
         sum_0 = sum_0 + sum_1;
     end
     sum_2 = 0;
-    for n = 1:size(R_hat,1)
+    for n = 1:size(w,1)
         sum_3 = 0;
         for i = 1:size(w,2)
             sum_3 = sum_3 + w(n, i) * R_hat(n);
@@ -282,11 +282,11 @@ end
 {
 \begin{minipage}[c]{\textwidth}
 \begin{align*}
-\mathit{C(x,y)} &amp; = \frac{\sum_\mathit{n} \sum_\mathit{i} \mathit{c}_{\mathit{n}, \mathit{i}} \cdot \mathit{w}_{\mathit{n}, \mathit{i}} \cdot \mathit{R̂}_{ \mathit{n} }}{\sum_\mathit{n} \sum_\mathit{i} \mathit{w}_{\mathit{n}, \mathit{i}} \cdot \mathit{R̂}_{ \mathit{n} }} \\
+\textit{C(x,y)} &amp; = \frac{\sum_\mathit{n} \sum_\mathit{i} \mathit{c}_{\mathit{n}, \mathit{i}} \cdot \mathit{w}_{\mathit{n}, \mathit{i}} \cdot \textit{R̂}_{ \mathit{n} }}{\sum_\mathit{n} \sum_\mathit{i} \mathit{w}_{\mathit{n}, \mathit{i}} \cdot \textit{R̂}_{ \mathit{n} }} \\
 \intertext{where} 
 \mathit{c} &amp; \in \mathbb{R}^{ \mathit{f} \times \mathit{s} } \text{ the value of the Bayer pixel} \\
 \mathit{w} &amp; \in \mathbb{R}^{ \mathit{f} \times \mathit{s} } \text{ the local sample weight} \\
-\mathit{R̂} &amp; \in \mathbb{R}^{ \mathit{f}} \text{ the local robustness} \\
+\textit{R̂} &amp; \in \mathbb{R}^{ \mathit{f}} \text{ the local robustness} \\
 \\
 \end{align*}
 \end{minipage}

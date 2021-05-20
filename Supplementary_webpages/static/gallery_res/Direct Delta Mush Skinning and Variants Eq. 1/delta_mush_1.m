@@ -29,13 +29,13 @@ function output = delta_mush_1(w, M, u)
     assert( isequal(size(w), [n, m]) );
     assert( isequal(size(M), [dim_0, 4, 4]) );
     assert( isequal(size(u), [dim_1, 4]) );
-    assert( m == dim_0 );
+    assert( dim_0 == m );
     assert( n == dim_1 );
 
     v = zeros(dim_1, 4);
     for i = 1:dim_1
         sum_0 = zeros(4,1);
-        for j = 1:size(w,2)
+        for j = 1:size(M, 1)
             sum_0 = sum_0 + w(i, j) * squeeze(M(j,:,:)) * u(i,:)';
         end
         v(i,:) = (sum_0)';
