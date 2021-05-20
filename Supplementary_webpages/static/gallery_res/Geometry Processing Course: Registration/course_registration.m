@@ -28,18 +28,18 @@ function output = course_registration(x, n_hat, p)
 
     function ret = target_1(u)
         sum_0 = zeros(6, 6);
-        for i = 1:size(size(x, 1),1)
+        for i = 1:size(x, 1)
             ret_0 = [[reshape(cross(x(i,:)', n_hat(i,:)'), [3, 1])]; [reshape(n_hat(i,:)', [3, 1])]];
             ret_1 = [[(cross(x(i,:)', n_hat(i,:)'))', n_hat(i,:)'']];
             sum_0 = sum_0 + ret_0 * ret_1;
         end
         sum_1 = zeros(6,1);
-        for i = 1:size(size(p, 1),1)
+        for i = 1:size(p, 1)
             ret_2 = [[reshape(cross(x(i,:)', n_hat(i,:)'), [3, 1])]; [reshape(n_hat(i,:)', [3, 1])]];
             sum_1 = sum_1 + ret_2 * n_hat(i,:)'' * (p(i,:)' - x(i,:)');
         end
         sum_2 = 0;
-        for i = 1:size(size(p, 1),1)
+        for i = 1:size(x, 1)
             sum_2 = sum_2 + (p(i,:)' - x(i,:)')' * n_hat(i,:)' * n_hat(i,:)'' * (p(i,:)' - x(i,:)');
         end
         ret = u' * (sum_0) * u - 2 * u' * (sum_1) + sum_2;

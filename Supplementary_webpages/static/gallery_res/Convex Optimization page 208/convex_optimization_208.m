@@ -30,7 +30,7 @@ function output = convex_optimization_208(x, p)
         sum_1 = 0;
         for j = 1:size(x,1)
             sum_2 = 0;
-            for k = 1:size(x,1)
+            for k = 1:size(p,2)
                 sum_2 = sum_2 + x(k) * p(i, k);
             end
             sum_1 = sum_1 + x(j) * p(i, j) * log2(p(i, j) / sum_2);

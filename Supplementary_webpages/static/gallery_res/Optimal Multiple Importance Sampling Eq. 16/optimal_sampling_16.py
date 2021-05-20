@@ -36,7 +36,7 @@ def optimal_sampling_16(α, p, X, M, f, p_c):
     dim_1 = p.shape[0]
     assert α.shape == (N,)
     assert np.ndim(M) == 0
-    assert N == dim_1 
+    assert dim_1 == N 
 
     sum_0 = 0
     for i in range(1, len(α)+1):
@@ -66,7 +66,9 @@ def generateRandomData():
             return np.random.randn()
         p.append(p_f)
     p = np.asarray(p)
-    X = np.random.randn(dim_0, np.random.randint(10), )
+    X = []
+    for i in range(dim_0):
+        X.append(np.random.randn(np.random.randint(10)))
     def f(p0):
         return np.random.randn()
     def p_c(p0):

@@ -28,7 +28,7 @@ function output = convex_optimization_220(x, W, nu)
     assert( numel(nu) == n );
 
     sum_0 = 0;
-    for i = 1:size(x,1)
+    for i = 1:size(nu,1)
         sum_0 = sum_0 + nu(i) * (x(i).^2 - 1);
     end
     L_x_nu = x' * W * x + sum_0;

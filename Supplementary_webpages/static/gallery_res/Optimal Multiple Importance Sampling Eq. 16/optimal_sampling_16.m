@@ -26,7 +26,10 @@ function output = optimal_sampling_16(alpha, p, X, M, f, p_c)
             p_f = @(p0) randn();
             p{end+1,1} = p_f;
         end
-        X = randn(dim_0,randi(10));
+        X = {};
+        for i = 1:dim_0
+            X = [X; randn(randi(10))];
+        end
         f = @fFunc;
         rseed = randi(2^32);
         function tmp =  fFunc(p0)
@@ -50,21 +53,21 @@ function output = optimal_sampling_16(alpha, p, X, M, f, p_c)
     dim_1 = size(p, 1);
     assert( numel(alpha) == N );
     assert(numel(M) == 1);
-    assert( N == dim_1 );
+    assert( dim_1 == N );
 
     sum_0 = 0;
     for i = 1:size(alpha,1)
         sum_0 = sum_0 + alpha(i);
     end
     sum_1 = 0;
-    for i = 1:size(size(X, 1),1)
+    for i = 1:size(X, 1)
         sum_2 = 0;
-        for j = 1:size(size(X(i), 1),1)
+        for j = 1:size(X{i}, 1)
             sum_3 = 0;
             for k = 1:size(alpha,1)
-                sum_3 = sum_3 + alpha(k) * p{k}(X(i,j));
+                sum_3 = sum_3 + alpha(k) * p{k}(X{i}(j));
             end
-            sum_2 = sum_2 + (f(X(i,j)) / p_c(X(i,j)) - (sum_3) / p_c(X(i,j)));
+            sum_2 = sum_2 + (f(X{i}(j)) / p_c(X{i}(j)) - (sum_3) / p_c(X{i}(j)));
         end
         sum_1 = sum_1 + sum_2;
     end

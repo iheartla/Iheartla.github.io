@@ -249,7 +249,7 @@ if __name__ == &#39;__main__&#39;:
         y(i) = a(i,:)&#39;&#39; * x + w(i);
     end
     sum_0 = zeros(n, n);
-    for i = 1:size(size(a, 1),1)
+    for i = 1:size(a, 1)
         sum_0 = sum_0 + reshape(a(i,:)&#39;, [n, 1]) * a(i,:)&#39;&#39;;
     end
     sum_1 = zeros(n,1);

@@ -40,13 +40,13 @@ function output = pmp_42(alpha, n, v, N1)
     assert(numel(v) == 1);
 
     sum_0 = zeros(3,1);
-    for T = 1:size(size(alpha, 1),1)
+    for T = 1:size(alpha, 1)
         if ismember([T],N1{v},'rows')
           sum_0 = sum_0 + alpha(T) * n(T,:)';
         end
     end
     sum_1 = zeros(3,1);
-    for T = 1:size(size(alpha, 1),1)
+    for T = 1:size(alpha, 1)
         if ismember([T],N1{v},'rows')
           sum_1 = sum_1 + alpha(T) * n(T,:)';
         end

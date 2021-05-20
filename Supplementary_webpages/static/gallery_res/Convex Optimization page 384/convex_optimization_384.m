@@ -34,7 +34,7 @@ function output = convex_optimization_384(a, x, w)
         y(i) = a(i,:)'' * x + w(i);
     end
     sum_0 = zeros(n, n);
-    for i = 1:size(size(a, 1),1)
+    for i = 1:size(a, 1)
         sum_0 = sum_0 + reshape(a(i,:)', [n, 1]) * a(i,:)'';
     end
     sum_1 = zeros(n,1);

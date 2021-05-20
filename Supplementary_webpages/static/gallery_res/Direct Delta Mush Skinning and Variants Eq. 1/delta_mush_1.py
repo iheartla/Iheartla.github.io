@@ -33,7 +33,7 @@ def delta_mush_1(w, M, u):
     assert M.shape == (dim_0, 4, 4)
     assert u.shape == (dim_1, 4, )
     assert m == dim_0 
-    assert dim_1 == n 
+    assert n == dim_1 
 
     v = np.zeros((dim_1, 4, ))
     for i in range(1, dim_1+1):

@@ -30,7 +30,7 @@ function output = pmp_74(v, u, M, A)
     assert( size(A,1) == dim_0 );
 
     sum_0 = 0;
-    for T = 1:size(size(v, 1),1)
+    for T = 1:size(v, 1)
         E_LSCM_0 = zeros(2, 2);
         E_LSCM_0(1,:) = [0, -1];
         E_LSCM_0(2,:) = [1, 0];

@@ -74,7 +74,7 @@ convex_optimization_208ResultType convex_optimization_208(
         double sum_1 = 0;
         for(int j=1; j&lt;=x.size(); j++){
             double sum_2 = 0;
-            for(int k=1; k&lt;=x.size(); k++){
+            for(int k=1; k&lt;=p.cols(); k++){
                 sum_2 += x[k-1] * p(i-1, k-1);
             }
             sum_1 += x[j-1] * p(i-1, j-1) * (log10(p(i-1, j-1) / double(sum_2)) / log10(2));
@@ -148,7 +148,7 @@ def convex_optimization_208(x, p):
         sum_1 = 0
         for j in range(1, len(x)+1):
             sum_2 = 0
-            for k in range(1, len(x)+1):
+            for k in range(1, p.shape[1]+1):
                 sum_2 += x[k-1] * p[i-1, k-1]
             sum_1 += x[j-1] * p[i-1, j-1] * np.log2(p[i-1, j-1] / sum_2)
         sum_0 += sum_1
@@ -206,7 +206,7 @@ if __name__ == &#39;__main__&#39;:
         sum_1 = 0;
         for j = 1:size(x,1)
             sum_2 = 0;
-            for k = 1:size(x,1)
+            for k = 1:size(p,2)
                 sum_2 = sum_2 + x(k) * p(i, k);
             end
             sum_1 = sum_1 + x(j) * p(i, j) * log2(p(i, j) / sum_2);

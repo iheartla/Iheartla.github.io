@@ -41,7 +41,7 @@ optimal_sampling_16ResultType optimal_sampling_16(
     const long N = α.size();
     const long dim_0 = X.size();
     const long dim_1 = p.size();
-    assert( N == dim_1 );
+    assert( dim_1 == N );
 
     double sum_0 = 0;
     for(int i=1; i<=α.size(); i++){

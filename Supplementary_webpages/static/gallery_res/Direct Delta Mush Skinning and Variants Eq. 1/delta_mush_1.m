@@ -30,7 +30,7 @@ function output = delta_mush_1(w, M, u)
     assert( isequal(size(M), [dim_0, 4, 4]) );
     assert( isequal(size(u), [dim_1, 4]) );
     assert( m == dim_0 );
-    assert( dim_1 == n );
+    assert( n == dim_1 );
 
     v = zeros(dim_1, 4);
     for i = 1:dim_1

@@ -12,7 +12,6 @@ where
 ρ_j ∈ ℝ 
 ρ̄_j ∈ ℝ 
 `σ_ρ`_j ∈ ℝ 
-ā_i ∈ ℝ 
 */
 #include <Eigen/Core>
 #include <Eigen/Dense>
@@ -36,8 +35,7 @@ morphable_model_5ResultType morphable_model_5(
     const std::vector<double> & σ_T,
     const std::vector<double> & ρ,
     const std::vector<double> & ρ̄,
-    const std::vector<double> & σ_ρ,
-    const std::vector<double> & ā)
+    const std::vector<double> & σ_ρ)
 {
     const long dim_0 = α.size();
     const long dim_1 = ρ.size();
@@ -46,7 +44,6 @@ morphable_model_5ResultType morphable_model_5(
     assert( σ_T.size() == dim_0 );
     assert( ρ̄.size() == dim_1 );
     assert( σ_ρ.size() == dim_1 );
-    assert( ā.size() == dim_0 );
 
     double sum_0 = 0;
     for(int j=1; j<=α.size(); j++){
@@ -57,7 +54,7 @@ morphable_model_5ResultType morphable_model_5(
         sum_1 += pow(β.at(j-1), 2) / double(pow(σ_T.at(j-1), 2));
     }
     double sum_2 = 0;
-    for(int j=1; j<=ρ̄.size(); j++){
+    for(int j=1; j<=ρ.size(); j++){
         sum_2 += pow((ρ.at(j-1) - ρ̄.at(j-1)), 2) / double(pow(σ_ρ.at(j-1), 2));
     }
     double E = 1 / double(pow(σ_N, 2)) * E_I + sum_0 + sum_1 + sum_2;
@@ -74,8 +71,7 @@ void generateRandomData(double & σ_N,
     std::vector<double> & σ_T,
     std::vector<double> & ρ,
     std::vector<double> & ρ̄,
-    std::vector<double> & σ_ρ,
-    std::vector<double> & ā)
+    std::vector<double> & σ_ρ)
 {
     σ_N = rand() % 10;
     E_I = rand() % 10;
@@ -109,10 +105,6 @@ void generateRandomData(double & σ_N,
     for(int i=0; i<dim_1; i++){
         σ_ρ[i] = rand() % 10;
     }
-    ā.resize(dim_0);
-    for(int i=0; i<dim_0; i++){
-        ā[i] = rand() % 10;
-    }
 }
 
 
@@ -128,9 +120,8 @@ int main(int argc, char *argv[])
     std::vector<double> ρ;
     std::vector<double> ρ̄;
     std::vector<double> σ_ρ;
-    std::vector<double> ā;
-    generateRandomData(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā);
-    morphable_model_5ResultType func_value = morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā);
+    generateRandomData(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ);
+    morphable_model_5ResultType func_value = morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ);
     std::cout<<"return value:\n"<<func_value.E<<std::endl;
     return 0;
 }

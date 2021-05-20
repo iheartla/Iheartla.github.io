@@ -31,7 +31,7 @@ function output = multi_frame_1(c, w, R_hat)
     sum_0 = 0;
     for n = 1:size(R_hat,1)
         sum_1 = 0;
-        for i = 1:size(w,2)
+        for i = 1:size(c,2)
             sum_1 = sum_1 + c(n, i) * w(n, i) * R_hat(n);
         end
         sum_0 = sum_0 + sum_1;

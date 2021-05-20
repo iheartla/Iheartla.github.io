@@ -87,7 +87,7 @@ optimal_sampling_16ResultType optimal_sampling_16(
     const long N = α.size();
     const long dim_0 = X.size();
     const long dim_1 = p.size();
-    assert( N == dim_1 );
+    assert( dim_1 == N );
 
     double sum_0 = 0;
     for(int i=1; i&lt;=α.size(); i++){
@@ -199,7 +199,7 @@ def optimal_sampling_16(α, p, X, M, f, p_c):
     dim_1 = p.shape[0]
     assert α.shape == (N,)
     assert np.ndim(M) == 0
-    assert N == dim_1 
+    assert dim_1 == N 
 
     sum_0 = 0
     for i in range(1, len(α)+1):
@@ -229,7 +229,9 @@ def generateRandomData():
             return np.random.randn()
         p.append(p_f)
     p = np.asarray(p)
-    X = np.random.randn(dim_0, np.random.randint(10), )
+    X = []
+    for i in range(dim_0):
+        X.append(np.random.randn(np.random.randint(10)))
     def f(p0):
         return np.random.randn()
     def p_c(p0):
@@ -279,7 +281,10 @@ if __name__ == &#39;__main__&#39;:
             p_f = @(p0) randn();
             p{end+1,1} = p_f;
         end
-        X = randn(dim_0,randi(10));
+        X = {};
+        for i = 1:dim_0
+            X = [X; randn(randi(10))];
+        end
         f = @fFunc;
         rseed = randi(2^32);
         function tmp =  fFunc(p0)
@@ -303,21 +308,21 @@ if __name__ == &#39;__main__&#39;:
     dim_1 = size(p, 1);
     assert( numel(alpha) == N );
     assert(numel(M) == 1);
-    assert( N == dim_1 );
+    assert( dim_1 == N );
 
     sum_0 = 0;
     for i = 1:size(alpha,1)
         sum_0 = sum_0 + alpha(i);
     end
     sum_1 = 0;
-    for i = 1:size(size(X, 1),1)
+    for i = 1:size(X, 1)
         sum_2 = 0;
-        for j = 1:size(size(X(i), 1),1)
+        for j = 1:size(X{i}, 1)
             sum_3 = 0;
             for k = 1:size(alpha,1)
-                sum_3 = sum_3 + alpha(k) * p{k}(X(i,j));
+                sum_3 = sum_3 + alpha(k) * p{k}(X{i}(j));
             end
-            sum_2 = sum_2 + (f(X(i,j)) / p_c(X(i,j)) - (sum_3) / p_c(X(i,j)));
+            sum_2 = sum_2 + (f(X{i}(j)) / p_c(X{i}(j)) - (sum_3) / p_c(X{i}(j)));
         end
         sum_1 = sum_1 + sum_2;
     end

@@ -74,7 +74,7 @@ delta_mush_1ResultType delta_mush_1(
     const long dim_1 = u.size();
     assert( w.rows() == n );
     assert( m == dim_0 );
-    assert( dim_1 == n );
+    assert( n == dim_1 );
 
     std::vector&lt;Eigen::Matrix&lt;double, 4, 1&gt;&gt; v(dim_1);
     for( int i=1; i&lt;=dim_1; i++){
@@ -164,7 +164,7 @@ def delta_mush_1(w, M, u):
     assert M.shape == (dim_0, 4, 4)
     assert u.shape == (dim_1, 4, )
     assert m == dim_0 
-    assert dim_1 == n 
+    assert n == dim_1 
 
     v = np.zeros((dim_1, 4, ))
     for i in range(1, dim_1+1):
@@ -229,7 +229,7 @@ if __name__ == &#39;__main__&#39;:
     assert( isequal(size(M), [dim_0, 4, 4]) );
     assert( isequal(size(u), [dim_1, 4]) );
     assert( m == dim_0 );
-    assert( dim_1 == n );
+    assert( n == dim_1 );
 
     v = zeros(dim_1, 4);
     for i = 1:dim_1

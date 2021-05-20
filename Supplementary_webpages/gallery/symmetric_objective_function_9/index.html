@@ -105,7 +105,7 @@ symmetric_objective_function_9ResultType symmetric_objective_function_9(
     Eigen::Matrix&lt;double, 3, 1&gt; ã = a * tan(θ);
 
     double sum_0 = 0;
-    for(int i=1; i&lt;=p.size(); i++){
+    for(int i=1; i&lt;=q.size(); i++){
         sum_0 += pow(cos(θ), 2) * pow((((p.at(i-1) - q.at(i-1))).dot(n.at(i-1)) + ((((p.at(i-1) + q.at(i-1))).cross(n.at(i-1)))).dot(ã) + (n.at(i-1)).dot(t̃)), 2);
     }
     double ret = sum_0;
@@ -211,7 +211,7 @@ def symmetric_objective_function_9(a, θ, p, q, n, t):
     t̃ = t / np.cos(θ)
     ã = a * np.tan(θ)
     sum_0 = 0
-    for i in range(1, len(p)+1):
+    for i in range(1, len(q)+1):
         sum_0 += np.power(np.cos(θ), 2) * np.power((np.dot(((p[i-1] - q[i-1])).ravel(), (n[i-1]).ravel()) + np.dot(((np.cross((p[i-1] + q[i-1]), n[i-1]))).ravel(), (ã).ravel()) + np.dot((n[i-1]).ravel(), (t̃).ravel())), 2)
     ret = sum_0
     return symmetric_objective_function_9ResultType(t̃, ã, ret)
@@ -286,7 +286,7 @@ if __name__ == &#39;__main__&#39;:
     t_tilde = t / cos(theta);
     a_tilde = a * tan(theta);
     sum_0 = 0;
-    for i = 1:size(size(p, 1),1)
+    for i = 1:size(q, 1)
         sum_0 = sum_0 + cos(theta).^2 * (dot((p(i,:)&#39; - q(i,:)&#39;),n(i,:)&#39;) + dot((cross((p(i,:)&#39; + q(i,:)&#39;), n(i,:)&#39;)),a_tilde) + dot(n(i,:)&#39;,t_tilde)).^2;
     end
     ret = sum_0;

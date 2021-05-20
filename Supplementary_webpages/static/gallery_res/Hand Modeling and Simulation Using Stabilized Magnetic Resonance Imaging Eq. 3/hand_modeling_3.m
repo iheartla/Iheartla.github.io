@@ -23,7 +23,7 @@ function output = hand_modeling_3(x, R)
 
     function ret = target_1(C)
         sum_0 = 0;
-        for i = 1:size(size(x, 1),1)
+        for i = 1:size(x, 1)
             sum_0 = sum_0 + norm(x(i,:)' + (squeeze(R(i,:,:)) - speye(3)) * C, 2).^2;
         end
         ret = sum_0;

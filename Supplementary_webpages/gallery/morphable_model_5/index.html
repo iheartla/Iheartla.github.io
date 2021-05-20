@@ -41,8 +41,7 @@ where
 `σ_T`_i ∈ ℝ 
 ρ_j ∈ ℝ 
 ρ̄_j ∈ ℝ 
-`σ_ρ`_j ∈ ℝ 
-ā_i ∈ ℝ </code></pre></div>
+`σ_ρ`_j ∈ ℝ </code></pre></div>
     
 
     
@@ -62,7 +61,6 @@ where
 ρ_j ∈ ℝ 
 ρ̄_j ∈ ℝ 
 `σ_ρ`_j ∈ ℝ 
-ā_i ∈ ℝ 
 */
 #include &lt;Eigen/Core&gt;
 #include &lt;Eigen/Dense&gt;
@@ -86,8 +84,7 @@ morphable_model_5ResultType morphable_model_5(
     const std::vector&lt;double&gt; &amp; σ_T,
     const std::vector&lt;double&gt; &amp; ρ,
     const std::vector&lt;double&gt; &amp; ρ̄,
-    const std::vector&lt;double&gt; &amp; σ_ρ,
-    const std::vector&lt;double&gt; &amp; ā)
+    const std::vector&lt;double&gt; &amp; σ_ρ)
 {
     const long dim_0 = α.size();
     const long dim_1 = ρ.size();
@@ -96,7 +93,6 @@ morphable_model_5ResultType morphable_model_5(
     assert( σ_T.size() == dim_0 );
     assert( ρ̄.size() == dim_1 );
     assert( σ_ρ.size() == dim_1 );
-    assert( ā.size() == dim_0 );
 
     double sum_0 = 0;
     for(int j=1; j&lt;=α.size(); j++){
@@ -107,7 +103,7 @@ morphable_model_5ResultType morphable_model_5(
         sum_1 += pow(β.at(j-1), 2) / double(pow(σ_T.at(j-1), 2));
     }
     double sum_2 = 0;
-    for(int j=1; j&lt;=ρ̄.size(); j++){
+    for(int j=1; j&lt;=ρ.size(); j++){
         sum_2 += pow((ρ.at(j-1) - ρ̄.at(j-1)), 2) / double(pow(σ_ρ.at(j-1), 2));
     }
     double E = 1 / double(pow(σ_N, 2)) * E_I + sum_0 + sum_1 + sum_2;
@@ -124,8 +120,7 @@ void generateRandomData(double &amp; σ_N,
     std::vector&lt;double&gt; &amp; σ_T,
     std::vector&lt;double&gt; &amp; ρ,
     std::vector&lt;double&gt; &amp; ρ̄,
-    std::vector&lt;double&gt; &amp; σ_ρ,
-    std::vector&lt;double&gt; &amp; ā)
+    std::vector&lt;double&gt; &amp; σ_ρ)
 {
     σ_N = rand() % 10;
     E_I = rand() % 10;
@@ -159,10 +154,6 @@ void generateRandomData(double &amp; σ_N,
     for(int i=0; i&lt;dim_1; i++){
         σ_ρ[i] = rand() % 10;
     }
-    ā.resize(dim_0);
-    for(int i=0; i&lt;dim_0; i++){
-        ā[i] = rand() % 10;
-    }
 }
 
 
@@ -178,9 +169,8 @@ int main(int argc, char *argv[])
     std::vector&lt;double&gt; ρ;
     std::vector&lt;double&gt; ρ̄;
     std::vector&lt;double&gt; σ_ρ;
-    std::vector&lt;double&gt; ā;
-    generateRandomData(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā);
-    morphable_model_5ResultType func_value = morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā);
+    generateRandomData(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ);
+    morphable_model_5ResultType func_value = morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ);
     std::cout&lt;&lt;&#34;return value:\n&#34;&lt;&lt;func_value.E&lt;&lt;std::endl;
     return 0;
 }</code></pre></div>
@@ -204,7 +194,6 @@ where
 ρ_j ∈ ℝ 
 ρ̄_j ∈ ℝ 
 `σ_ρ`_j ∈ ℝ 
-ā_i ∈ ℝ 
 &#34;&#34;&#34;
 import numpy as np
 import scipy
@@ -219,7 +208,7 @@ class morphable_model_5ResultType:
         self.E = E
 
 
-def morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā):
+def morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ):
     α = np.asarray(α, dtype=np.float64)
     β = np.asarray(β, dtype=np.float64)
     σ_S = np.asarray(σ_S, dtype=np.float64)
@@ -227,7 +216,6 @@ def morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā):
     ρ = np.asarray(ρ, dtype=np.float64)
     ρ̄ = np.asarray(ρ̄, dtype=np.float64)
     σ_ρ = np.asarray(σ_ρ, dtype=np.float64)
-    ā = np.asarray(ā, dtype=np.float64)
 
     dim_0 = α.shape[0]
     dim_1 = ρ.shape[0]
@@ -240,7 +228,6 @@ def morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā):
     assert ρ.shape == (dim_1,)
     assert ρ̄.shape == (dim_1,)
     assert σ_ρ.shape == (dim_1,)
-    assert ā.shape == (dim_0,)
 
     sum_0 = 0
     for j in range(1, len(α)+1):
@@ -249,7 +236,7 @@ def morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā):
     for j in range(1, len(β)+1):
         sum_1 += np.power(β[j-1], 2) / np.power(σ_T[j-1], 2)
     sum_2 = 0
-    for j in range(1, len(ρ̄)+1):
+    for j in range(1, len(ρ)+1):
         sum_2 += np.power((ρ[j-1] - ρ̄[j-1]), 2) / np.power(σ_ρ[j-1], 2)
     E = 1 / np.power(σ_N, 2) * E_I + sum_0 + sum_1 + sum_2
     return morphable_model_5ResultType(E)
@@ -267,12 +254,11 @@ def generateRandomData():
     ρ = np.random.randn(dim_1)
     ρ̄ = np.random.randn(dim_1)
     σ_ρ = np.random.randn(dim_1)
-    ā = np.random.randn(dim_0)
-    return σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā
+    return σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ
 
 
 if __name__ == &#39;__main__&#39;:
-    σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā = generateRandomData()
+    σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ = generateRandomData()
     print(&#34;σ_N:&#34;, σ_N)
     print(&#34;E_I:&#34;, E_I)
     print(&#34;α:&#34;, α)
@@ -282,15 +268,14 @@ if __name__ == &#39;__main__&#39;:
     print(&#34;ρ:&#34;, ρ)
     print(&#34;ρ̄:&#34;, ρ̄)
     print(&#34;σ_ρ:&#34;, σ_ρ)
-    print(&#34;ā:&#34;, ā)
-    func_value = morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ, ā)
+    func_value = morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ)
     print(&#34;return value: &#34;, func_value.E)</code></pre></div>
     
 
     
       <p>I❤️LA compiled to Matlab:
-      <div class="code_block"><pre ><code class="language-matlab">function output = morphable_model_5(sigma_N, E_I, alpha, beta, sigma_S, sigma_T, rho, rho_bar, sigma_rho, latin_small_letter_a_with_macron)
-% output = morphable_model_5(`σ_N`, `E_I`, α, β, `σ_S`, `σ_T`, ρ, ρ̄, `σ_ρ`, ā)
+      <div class="code_block"><pre ><code class="language-matlab">function output = morphable_model_5(sigma_N, E_I, alpha, beta, sigma_S, sigma_T, rho, rho_bar, sigma_rho)
+% output = morphable_model_5(`σ_N`, `E_I`, α, β, `σ_S`, `σ_T`, ρ, ρ̄, `σ_ρ`)
 %
 %    E = 1/`σ_N`²`E_I` + ∑_j α_j²/`σ_S`_j² + ∑_j β_j²/`σ_T`_j²  + ∑_j (ρ_j-ρ̄_j)²/`σ_ρ`_j²
 %    
@@ -305,12 +290,11 @@ if __name__ == &#39;__main__&#39;:
 %    ρ_j ∈ ℝ 
 %    ρ̄_j ∈ ℝ 
 %    `σ_ρ`_j ∈ ℝ 
-%    ā_i ∈ ℝ 
     if nargin==0
         warning(&#39;generating random input data&#39;);
-        [sigma_N, E_I, alpha, beta, sigma_S, sigma_T, rho, rho_bar, sigma_rho, latin_small_letter_a_with_macron] = generateRandomData();
+        [sigma_N, E_I, alpha, beta, sigma_S, sigma_T, rho, rho_bar, sigma_rho] = generateRandomData();
     end
-    function [sigma_N, E_I, alpha, beta, sigma_S, sigma_T, rho, rho_bar, sigma_rho, latin_small_letter_a_with_macron] = generateRandomData()
+    function [sigma_N, E_I, alpha, beta, sigma_S, sigma_T, rho, rho_bar, sigma_rho] = generateRandomData()
         sigma_N = randn();
         E_I = randn();
         dim_0 = randi(10);
@@ -322,7 +306,6 @@ if __name__ == &#39;__main__&#39;:
         rho = randn(dim_1,1);
         rho_bar = randn(dim_1,1);
         sigma_rho = randn(dim_1,1);
-        latin_small_letter_a_with_macron = randn(dim_0,1);
     end
 
     alpha = reshape(alpha,[],1);
@@ -332,7 +315,6 @@ if __name__ == &#39;__main__&#39;:
     rho = reshape(rho,[],1);
     rho_bar = reshape(rho_bar,[],1);
     sigma_rho = reshape(sigma_rho,[],1);
-    latin_small_letter_a_with_macron = reshape(latin_small_letter_a_with_macron,[],1);
 
     dim_0 = size(alpha, 1);
     dim_1 = size(rho, 1);
@@ -345,18 +327,17 @@ if __name__ == &#39;__main__&#39;:
     assert( size(rho,1) == dim_1 );
     assert( size(rho_bar,1) == dim_1 );
     assert( size(sigma_rho,1) == dim_1 );
-    assert( size(latin_small_letter_a_with_macron,1) == dim_0 );
 
     sum_0 = 0;
-    for j = 1:size(size(alpha, 1),1)
+    for j = 1:size(alpha, 1)
         sum_0 = sum_0 + alpha(j).^2 / sigma_S(j).^2;
     end
     sum_1 = 0;
-    for j = 1:size(size(beta, 1),1)
+    for j = 1:size(beta, 1)
         sum_1 = sum_1 + beta(j).^2 / sigma_T(j).^2;
     end
     sum_2 = 0;
-    for j = 1:size(size(rho_bar, 1),1)
+    for j = 1:size(rho, 1)
         sum_2 = sum_2 + (rho(j) - rho_bar(j)).^2 / sigma_rho(j).^2;
     end
     E = 1 / sigma_N.^2 * E_I + sum_0 + sum_1 + sum_2;
@@ -398,7 +379,6 @@ end
 \mathit{ρ}_{\mathit{j}} &amp; \in \mathbb{R} \\
 \mathit{ρ̄}_{\mathit{j}} &amp; \in \mathbb{R} \\
 \mathit{σ\_ρ}_{\mathit{j}} &amp; \in \mathbb{R} \\
-\mathit{ā}_{\mathit{i}} &amp; \in \mathbb{R} \\
 \\
 \end{align*}
 \end{minipage}

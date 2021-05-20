@@ -269,13 +269,13 @@ if __name__ == &#39;__main__&#39;:
     assert(numel(v) == 1);
 
     sum_0 = zeros(3,1);
-    for T = 1:size(size(alpha, 1),1)
+    for T = 1:size(alpha, 1)
         if ismember([T],N1{v},&#39;rows&#39;)
           sum_0 = sum_0 + alpha(T) * n(T,:)&#39;;
         end
     end
     sum_1 = zeros(3,1);
-    for T = 1:size(size(alpha, 1),1)
+    for T = 1:size(alpha, 1)
         if ismember([T],N1{v},&#39;rows&#39;)
           sum_1 = sum_1 + alpha(T) * n(T,:)&#39;;
         end
