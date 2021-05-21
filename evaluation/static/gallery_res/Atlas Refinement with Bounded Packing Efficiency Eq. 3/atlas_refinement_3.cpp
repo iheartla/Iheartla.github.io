@@ -43,7 +43,7 @@ atlas_refinement_3ResultType atlas_refinement_3(
     assert( s_circumflex_accent_k.size() == dim_0 );
 
     Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(2, 1);
-    for(int j=1; j<=s_circumflex_accent_k.size(); j++){
+    for(int j=1; j<=b.size(); j++){
         sum_0 += l.at(j-1) * exp(-pow(dist(bᵢ, b.at(j-1)), 2) / double((2 * pow(σ, 2)))) * s_circumflex_accent_k.at(j-1);
     }
     Eigen::Matrix<double, 2, 1> G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0;

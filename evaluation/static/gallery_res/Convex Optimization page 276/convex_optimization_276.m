@@ -14,12 +14,12 @@ function output = convex_optimization_276(A, b, x0)
     function [A, b, x0] = generateRandomData()
         dim_0 = randi(10);
         n = randi(10);
-        A = {};
         b = {};
+        A = {};
         for i = 1:dim_0
             m_2 = randi(10);
-            A = [A; randn(m_2, n)];
             b = [b; randn(m_2)];
+            A = [A; randn(m_2, n)];
         end
         x0 = randn(n,1);
     end
@@ -32,7 +32,7 @@ function output = convex_optimization_276(A, b, x0)
 
     function ret = target_1(x)
         sum_0 = 0;
-        for i = 1:size(A, 1)
+        for i = 1:size(b, 1)
             sum_0 = sum_0 + norm(A{i} * x + b{i}, 2);
         end
         ret = sum_0 + (1 / 2) * norm(x - x0, 2).^2;

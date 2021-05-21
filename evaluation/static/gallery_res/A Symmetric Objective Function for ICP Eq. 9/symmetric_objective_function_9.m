@@ -42,7 +42,7 @@ function output = symmetric_objective_function_9(a, theta, p, q, n, t)
     t_tilde = t / cos(theta);
     a_tilde = a * tan(theta);
     sum_0 = 0;
-    for i = 1:size(p, 1)
+    for i = 1:size(q, 1)
         sum_0 = sum_0 + cos(theta).^2 * (dot((p(i,:)' - q(i,:)'),n(i,:)') + dot((cross((p(i,:)' + q(i,:)'), n(i,:)')),a_tilde) + dot(n(i,:)',t_tilde)).^2;
     end
     ret = sum_0;

@@ -41,7 +41,7 @@ multi_frame_1ResultType multi_frame_1(
     assert( R̂.size() == f );
 
     double sum_0 = 0;
-    for(int n=1; n<=w.rows(); n++){
+    for(int n=1; n<=R̂.size(); n++){
         double sum_1 = 0;
         for(int i=1; i<=w.cols(); i++){
             sum_1 += c(n-1, i-1) * w(n-1, i-1) * R̂[n-1];

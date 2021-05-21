@@ -36,7 +36,7 @@ def optimal_sampling_16(α, p, X, M, f, p_c):
     dim_1 = p.shape[0]
     assert α.shape == (N,)
     assert np.ndim(M) == 0
-    assert dim_1 == N 
+    assert N == dim_1 
 
     sum_0 = 0
     for i in range(1, len(α)+1):

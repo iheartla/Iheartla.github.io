@@ -88,7 +88,7 @@ atlas_refinement_3ResultType atlas_refinement_3(
     assert( s_circumflex_accent_k.size() == dim_0 );
 
     Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(2, 1);
-    for(int j=1; j&lt;=s_circumflex_accent_k.size(); j++){
+    for(int j=1; j&lt;=b.size(); j++){
         sum_0 += l.at(j-1) * exp(-pow(dist(bᵢ, b.at(j-1)), 2) / double((2 * pow(σ, 2)))) * s_circumflex_accent_k.at(j-1);
     }
     Eigen::Matrix&lt;double, 2, 1&gt; G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0;
@@ -188,7 +188,7 @@ def atlas_refinement_3(l, dist, bᵢ, b, σ, s_circumflex_accent_k):
     assert s_circumflex_accent_k.shape == (dim_0, 2, )
 
     sum_0 = np.zeros((2, ))
-    for j in range(1, len(s_circumflex_accent_k)+1):
+    for j in range(1, len(b)+1):
         sum_0 += l[j-1] * np.exp(-np.power(dist(bᵢ, b[j-1]), 2) / (2 * np.power(σ, 2))) * s_circumflex_accent_k[j-1]
     G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0
     return atlas_refinement_3ResultType(G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis)
@@ -219,7 +219,7 @@ if __name__ == &#39;__main__&#39;:
     
 
     
-      <p>I❤️LA compiled to Matlab:
+      <p>I❤️LA compiled to MATLAB:
       <div class="code_block"><pre ><code class="language-matlab">function output = atlas_refinement_3(l, dist, b_i, b, sigma, s_k)
 % output = atlas_refinement_3(l, dist, `bᵢ`, b, σ, `s^k`)
 %
@@ -263,7 +263,7 @@ if __name__ == &#39;__main__&#39;:
     assert( isequal(size(s_k), [dim_0, 2]) );
 
     sum_0 = zeros(2,1);
-    for j = 1:size(s_k, 1)
+    for j = 1:size(b, 1)
         sum_0 = sum_0 + l(j) * exp(-dist(b_i, b(j,:)&#39;).^2 / (2 * sigma.^2)) * s_k(j,:)&#39;;
     end
     G_sigma_s_k_i = sum_0;

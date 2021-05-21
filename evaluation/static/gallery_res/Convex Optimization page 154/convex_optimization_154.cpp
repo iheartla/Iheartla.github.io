@@ -26,11 +26,11 @@ convex_optimization_154ResultType convex_optimization_154(
     assert( p.size() == n );
 
     double sum_0 = 0;
-    for(int i=1; i<=f.size(); i++){
+    for(int i=1; i<=p.size(); i++){
         sum_0 += pow(f[i-1], 2) * p[i-1];
     }
     double sum_1 = 0;
-    for(int i=1; i<=f.size(); i++){
+    for(int i=1; i<=p.size(); i++){
         sum_1 += f[i-1] * p[i-1];
     }
     double ret = sum_0 - pow((sum_1), 2);

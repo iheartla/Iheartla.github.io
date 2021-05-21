@@ -30,7 +30,7 @@ delta_mush_1ResultType delta_mush_1(
     const long dim_0 = M.size();
     const long dim_1 = u.size();
     assert( w.rows() == n );
-    assert( dim_0 == m );
+    assert( m == dim_0 );
     assert( n == dim_1 );
 
     std::vector<Eigen::Matrix<double, 4, 1>> v(dim_1);

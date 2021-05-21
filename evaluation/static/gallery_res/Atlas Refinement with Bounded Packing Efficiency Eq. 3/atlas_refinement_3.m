@@ -41,7 +41,7 @@ function output = atlas_refinement_3(l, dist, b_i, b, sigma, s_k)
     assert( isequal(size(s_k), [dim_0, 2]) );
 
     sum_0 = zeros(2,1);
-    for j = 1:size(s_k, 1)
+    for j = 1:size(b, 1)
         sum_0 = sum_0 + l(j) * exp(-dist(b_i, b(j,:)').^2 / (2 * sigma.^2)) * s_k(j,:)';
     end
     G_sigma_s_k_i = sum_0;

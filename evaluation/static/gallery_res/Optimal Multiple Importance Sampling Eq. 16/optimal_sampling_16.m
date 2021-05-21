@@ -53,7 +53,7 @@ function output = optimal_sampling_16(alpha, p, X, M, f, p_c)
     dim_1 = size(p, 1);
     assert( numel(alpha) == N );
     assert(numel(M) == 1);
-    assert( dim_1 == N );
+    assert( N == dim_1 );
 
     sum_0 = 0;
     for i = 1:size(alpha,1)

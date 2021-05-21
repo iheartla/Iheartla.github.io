@@ -87,7 +87,7 @@ optimal_sampling_16ResultType optimal_sampling_16(
     const long N = α.size();
     const long dim_0 = X.size();
     const long dim_1 = p.size();
-    assert( dim_1 == N );
+    assert( N == dim_1 );
 
     double sum_0 = 0;
     for(int i=1; i&lt;=α.size(); i++){
@@ -199,7 +199,7 @@ def optimal_sampling_16(α, p, X, M, f, p_c):
     dim_1 = p.shape[0]
     assert α.shape == (N,)
     assert np.ndim(M) == 0
-    assert dim_1 == N 
+    assert N == dim_1 
 
     sum_0 = 0
     for i in range(1, len(α)+1):
@@ -252,7 +252,7 @@ if __name__ == &#39;__main__&#39;:
     
 
     
-      <p>I❤️LA compiled to Matlab:
+      <p>I❤️LA compiled to MATLAB:
       <div class="code_block"><pre ><code class="language-matlab">function output = optimal_sampling_16(alpha, p, X, M, f, p_c)
 % output = optimal_sampling_16(α, p, X, M, f, `p_c`)
 %
@@ -308,7 +308,7 @@ if __name__ == &#39;__main__&#39;:
     dim_1 = size(p, 1);
     assert( numel(alpha) == N );
     assert(numel(M) == 1);
-    assert( dim_1 == N );
+    assert( N == dim_1 );
 
     sum_0 = 0;
     for i = 1:size(alpha,1)

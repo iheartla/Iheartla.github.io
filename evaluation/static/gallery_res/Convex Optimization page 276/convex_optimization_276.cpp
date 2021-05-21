@@ -41,12 +41,12 @@ void generateRandomData(std::vector<Eigen::MatrixXd> & A,
 {
     const int dim_0 = rand()%10;
     const int n = rand()%10;
-    A.resize(dim_0);
     b.resize(dim_0);
+    A.resize(dim_0);
     for(int i=0; i<dim_0; i++){
         int m_1 = rand()%10;
-        A[i] = Eigen::MatrixXd::Random(m_1, n);
         b[i] = Eigen::VectorXd::Random(m_1);
+        A[i] = Eigen::MatrixXd::Random(m_1, n);
     }
     x₀ = Eigen::VectorXd::Random(n);
 }
