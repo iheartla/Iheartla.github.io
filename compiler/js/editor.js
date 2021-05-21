@@ -1,9 +1,9 @@
 let unicode_dict = {'R': 'ℝ', 'Z': 'ℤ', 'x': '×', 'times': '×', 'inf': '∞', 'in': '∈', 'sum': '∑',
                              'had': '∘', 'kro': '⊗', 'dot': '⋅', 'T': 'ᵀ', '^T': 'ᵀ', 'par': '∂', 'emp': '∅',
                              'arr': '→', 'int': '∫', 'dbl': '‖', 'pi': 'π', 'sig': 'σ', 'rho': 'ρ',
-                             'phi': 'ϕ', 'the': 'θ', 'alp': 'α', 'bet': 'β',  'gam': 'γ',
+                             'phi': 'ϕ', 'theta': 'θ', 'alpha': 'α', 'beta': 'β',  'gamma': 'γ',
                              'u0': '₀', 'u1': '₁', 'u2': '₂', 'u3': '₃', 'u4': '₄', 'u5': '₅', 'u6': '₆', 'u7': '₇', 'u8': '₈', 'u9': '₉',
-                             '_0': '_', '_1': '₁', '_2': '₂', '_3': '₃', '_4': '₄', '_5': '₅', '_6': '₆', '_7': '₇', '_8': '₈', '_9': '₉',
+                             '_0': '₀', '_1': '₁', '_2': '₂', '_3': '₃', '_4': '₄', '_5': '₅', '_6': '₆', '_7': '₇', '_8': '₈', '_9': '₉',
                              's0': '⁰', 's1': '¹', 's2': '²', 's3': '³', 's4': '⁴', 's5': '⁵', 's6': '⁶', 's7': '⁷', 's8': '⁸', 's9': '⁹', 's-1': '⁻¹', '^-1': '⁻¹',
                              '^0': '⁰', '^1': '¹', '^2': '²', '^3': '³', '^4': '⁴', '^5': '⁵', '^6': '⁶', '^7': '⁷', '^8': '⁸', '^9': '⁹',
                              '_a': 'ₐ', '_e': 'ₑ', '_h': 'ₕ', '_i': 'ᵢ', '_j': 'ⱼ', '_k': 'ₖ',
@@ -14,8 +14,10 @@ let unicode_dict = {'R': 'ℝ', 'Z': 'ℤ', 'x': '×', 'times': '×', 'inf': '�
                              '3/4': '¾', '3/5': '⅗', '3/8': '⅜', '4/5': '⅘', '5/6': '⅚', '5/8': '⅝', '7/8': '⅞',
                              'heart': '❤️', 'iheartla': 'I❤️LA',
                              'le':'≤', 'ge':'≥', 'ne': '≠', 'notin':'∉', 'div':'÷', 'nplus': '±',
-                             'linner': '⟨', 'rinner':'⟩', 'num1': '𝟙'
+                             'linner': '⟨', 'rinner':'⟩', 'num1': '𝟙',
+                             'hat': '\u0302', 'bar': '\u0304'
                              }
+let code_result = []
 function checkBrowserVer(){
     var nVer = navigator.appVersion;
     var nAgt = navigator.userAgent;
@@ -76,14 +78,40 @@ function checkBrowserVer(){
         fullVersion  = ''+parseFloat(navigator.appVersion);
         majorVersion = parseInt(navigator.appVersion,10);
     }
+    
+    let result = false;
     if (validBrowser){
+        result = true;
         msg = "Valid browser!";
     }
     else{
-        msg = "You are using " + browserName + ", please use Chrome or Firefox!";
+        msg = "You are using " + browserName + ". Please use Chrome or Firefox.";
     }
     console.log(msg);
-    return msg;
+    
+    
+    // Also check for a secure context.
+    // UPDATE: This isn't needed.
+    /*
+    if( !window.isSecureContext ) {
+        result = false;
+        msg = "This is not a secure context. You must use 'https://' or 'http://localhost'."
+        console.log(msg);
+    }
+    */
+    
+    // Make sure we're not running from a file: URL (if the user double-clicked index.html)
+    // Source: https://stackoverflow.com/questions/3920892/how-to-detect-if-a-web-page-is-running-from-a-website-or-local-file-system
+    /// It turns out we don't need a secure context.
+    // if( !window.isSecureContext ) {
+    /// But a file: URL won't work.
+    if( window.location.protocol === "file:" ) {
+        result = false;
+        msg = "Please run via a local webserver. Try `python3 -m http.server` and then browse to 'http://localhost:8000/'."
+        console.log(msg);
+    }
+    
+    return [ result, msg ];
 }
 
 function isChrome(){
@@ -103,6 +131,7 @@ function isChrome(){
     import micropip
     micropip.install('appdirs')
     micropip.install('tatsu')
+    micropip.install('sympy')
     micropip.install('${wheel}')
     `
     await pyodide.loadPackage(['micropip']);
@@ -153,18 +182,39 @@ function convert(input) {
 
 function updateEditor(code) {
     showMsg('Compile succeeded');
-    var cpp = ace.edit("cpp");
-    cpp.session.setValue(code[1]);
-    var python = ace.edit("python");
-    python.session.setValue(code[0]);
-    var latex = ace.edit("latex");
-    latex.session.setValue(code[2]);
+    var output = ace.edit("lang_output");
+    output.session.setValue(code[1]);
     convert(code[3]);
+    code_result = code;
     // reset UI
     activateBtnStatus();
+
+    this.updateOutput();
+}
+
+function updateOutput(){
+    let cur_editor = ace.edit("lang_output");
+    cur_editor.setTheme("ace/theme/twilight");
+    cur_editor.setOptions({
+        readOnly: true,
+    });
+    if (document.getElementById("cpp_output").checked){
+        cur_editor.setValue(code_result[1]);
+    }
+    else if (document.getElementById("python_output").checked){
+        cur_editor.setValue(code_result[0]);
+    }
+    else if (document.getElementById("matlab_output").checked){
+        cur_editor.setValue(code_result[4]);
+    }
+    else if (document.getElementById("latex_output").checked){
+        cur_editor.setValue(code_result[2]);
+    }
+    cur_editor.clearSelection();
 }
 
 function updateError(err) {
+    code_result = [];
     showMsg(err, true);
     activateBtnStatus();
 }
@@ -210,12 +260,40 @@ function clickCompile(){
     }
 }
 
+function clickCopy() {
+    // Base the URL off the current one.
+    const url = new URL(window.location.href);
+    const source = editor.getValue();
+    url.searchParams.set( "code", source );
+    
+    navigator.clipboard.writeText( url.toString() ).then(function() {
+        /* clipboard successfully set */
+        showMsg( "Copied a shareable code URL to the clipboard." );
+    }, function() {
+        /* clipboard write failed */
+        showMsg( "Failed to copy to the clipboard." );
+    });
+    
+    
+    
+}
+
 function showMsg(msg, error=false){
     msg = msg.replaceAll('\n', '<br>')
-    document.getElementById("msg").hidden = false;
-    document.getElementById("msg").innerHTML = msg;
-    if(!error) {
+    
+    let el = document.getElementById("msg");
+    el.hidden = false;
+    el.innerHTML = msg;
+    
+    // Alert types: https://getbootstrap.com/docs/4.0/components/alerts/
+    // Edit class: https://stackoverflow.com/questions/195951/how-can-i-change-an-elements-class-with-javascript
+    el.classList.remove('alert-primary');
+    el.classList.remove('alert-danger');
+    if(error) {
+        el.classList.add('alert-danger');
+    } else {
         // notice, auto hide
+        el.classList.add('alert-primary');
         setTimeout(hideMsg, 2000);
     }
 }
@@ -253,4 +331,27 @@ function onEditIhla(e){
     }
 }
 
+// Set the contents of the code editor to a `code` parameter if present.
+function loadCodeFromURLParameter() {
+    const url = new URL(window.location.href);
+    const code = url.searchParams.get("code");
+    if( code !== null ) {
+        // If this is called after the ace editor is created, then we need
+        // to set the code a different way.
+        document.getElementById("editor").innerHTML = code;
+    }
+}
 
+function captureHotKeys() {
+    // https://stackoverflow.com/questions/93695/best-cross-browser-method-to-capture-ctrls-with-jquery
+    window.addEventListener( 'keydown', function(event) {
+        if (event.ctrlKey || event.metaKey) {
+            switch (String.fromCharCode(event.which).toLowerCase()) {
+            case 'r':
+                event.preventDefault();
+                clickCompile();
+                break;
+            }
+        }
+    });
+}
