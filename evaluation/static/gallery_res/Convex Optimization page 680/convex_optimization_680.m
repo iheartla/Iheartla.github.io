@@ -2,10 +2,10 @@ function output = convex_optimization_680(P1, P2, P3, B, C, L, L_tilde, U, U_til
 % output = convex_optimization_680(`P₁`, `P₂`, `P₃`, B, C, L, L̃, U, Ũ)
 %
 %    [`P₁`  0
-%     0     `P₃`][    L            0
-%                 `P₃`ᵀC`P₂`ᵀU⁻¹  -L̃][U  L⁻¹`P₁`ᵀB
-%                                     0        Ũ   ][`P₂`   0
-%                                                      0    I_n]
+%      0   `P₃`][      L          0
+%                `P₃`ᵀC`P₂`ᵀU⁻¹  -L̃][U   L⁻¹`P₁`ᵀB
+%                                    0       Ũ    ][`P₂`  0
+%                                                    0   I_n]
 %    
 %    where
 %    

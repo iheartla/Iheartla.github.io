@@ -33,7 +33,7 @@ pmp_74ResultType pmp_74(
     assert( M.size() == dim_0 );
 
     double sum_0 = 0;
-    for(int T=1; T<=v.size(); T++){
+    for(int T=1; T<=M.size(); T++){
         Eigen::Matrix<double, 2, 2> E_LSCM_0;
         E_LSCM_0 << 0, -1,
         1, 0;

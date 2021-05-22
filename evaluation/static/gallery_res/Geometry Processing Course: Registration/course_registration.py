@@ -39,11 +39,11 @@ def course_registration(x, n̂, p):
             ret_1 = np.hstack(((np.cross(x[i-1], n̂[i-1])).T.reshape(1, 3), n̂[i-1].T.reshape(1, 3)))
             sum_0 += ret_0 @ ret_1
         sum_1 = np.zeros((6, ))
-        for i in range(1, len(x)+1):
+        for i in range(1, len(p)+1):
             ret_2 = np.vstack(((np.cross(x[i-1], n̂[i-1])).reshape(3, 1), (n̂[i-1]).reshape(3, 1)))
             sum_1 += ret_2 @ n̂[i-1].T.reshape(1, 3) @ (p[i-1] - x[i-1])
         sum_2 = 0
-        for i in range(1, len(x)+1):
+        for i in range(1, len(p)+1):
             sum_2 += (((p[i-1] - x[i-1]).T.reshape(1, 3) @ n̂[i-1]).item() * n̂[i-1].T.reshape(1, 3) @ (p[i-1] - x[i-1])).item()
         return (u.T.reshape(1, 6) @ (sum_0) @ u).item() - (2 * u.T.reshape(1, 6) @ (sum_1)).item() + sum_2
     ret = minimize(target_0, np.zeros(6)).fun

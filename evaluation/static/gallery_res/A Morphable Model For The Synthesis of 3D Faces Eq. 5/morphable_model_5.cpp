@@ -54,7 +54,7 @@ morphable_model_5ResultType morphable_model_5(
         sum_1 += pow(β.at(j-1), 2) / double(pow(σ_T.at(j-1), 2));
     }
     double sum_2 = 0;
-    for(int j=1; j<=ρ̄.size(); j++){
+    for(int j=1; j<=ρ.size(); j++){
         sum_2 += pow((ρ.at(j-1) - ρ̄.at(j-1)), 2) / double(pow(σ_ρ.at(j-1), 2));
     }
     double E = 1 / double(pow(σ_N, 2)) * E_I + sum_0 + sum_1 + sum_2;

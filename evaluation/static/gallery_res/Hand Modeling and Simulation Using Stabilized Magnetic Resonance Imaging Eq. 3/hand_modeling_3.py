@@ -29,7 +29,7 @@ def hand_modeling_3(x, R):
 
     def target_0(C):
         sum_0 = 0
-        for i in range(1, len(R)+1):
+        for i in range(1, len(x)+1):
             sum_0 += np.power(np.linalg.norm(x[i-1] + (R[i-1] - np.identity(3)) @ C, 2), 2)
         return sum_0
     ret = minimize(target_0, np.zeros(3)).fun

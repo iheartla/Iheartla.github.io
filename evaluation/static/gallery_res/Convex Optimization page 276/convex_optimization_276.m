@@ -32,7 +32,7 @@ function output = convex_optimization_276(A, b, x0)
 
     function ret = target_1(x)
         sum_0 = 0;
-        for i = 1:size(b, 1)
+        for i = 1:size(A, 1)
             sum_0 = sum_0 + norm(A{i} * x + b{i}, 2);
         end
         ret = sum_0 + (1 / 2) * norm(x - x0, 2).^2;

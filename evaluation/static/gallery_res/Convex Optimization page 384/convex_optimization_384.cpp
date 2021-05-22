@@ -54,7 +54,7 @@ convex_optimization_384ResultType convex_optimization_384(
         sum_0 += a.at(i-1) * a.at(i-1).transpose();
     }
     Eigen::MatrixXd sum_1 = Eigen::MatrixXd::Zero(n, 1);
-    for(int i=1; i<=y.size(); i++){
+    for(int i=1; i<=a.size(); i++){
         sum_1 += y[i-1] * a.at(i-1);
     }
     Eigen::VectorXd x̂ = (sum_0).colPivHouseholderQr().solve(sum_1);

@@ -40,14 +40,14 @@ pmp_42ResultType pmp_42(
     assert( n.size() == dim_0 );
 
     Eigen::MatrixXd sum_0 = Eigen::MatrixXd::Zero(3, 1);
-    for(int T=1; T<=α.size(); T++){
+    for(int T=1; T<=n.size(); T++){
         std::set<int > set_0 = N₁.at(v-1);
         if(set_0.find(int(T)) != set_0.end()){
             sum_0 += α.at(T-1) * n.at(T-1);
         }
     }
     Eigen::MatrixXd sum_1 = Eigen::MatrixXd::Zero(3, 1);
-    for(int T=1; T<=α.size(); T++){
+    for(int T=1; T<=n.size(); T++){
         std::set<int > set_1 = N₁.at(v-1);
         if(set_1.find(int(T)) != set_1.end()){
             sum_1 += α.at(T-1) * n.at(T-1);

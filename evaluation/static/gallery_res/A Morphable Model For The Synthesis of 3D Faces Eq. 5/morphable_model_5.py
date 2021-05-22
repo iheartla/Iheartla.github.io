@@ -54,7 +54,7 @@ def morphable_model_5(σ_N, E_I, α, β, σ_S, σ_T, ρ, ρ̄, σ_ρ):
     for j in range(1, len(β)+1):
         sum_1 += np.power(β[j-1], 2) / np.power(σ_T[j-1], 2)
     sum_2 = 0
-    for j in range(1, len(ρ̄)+1):
+    for j in range(1, len(ρ)+1):
         sum_2 += np.power((ρ[j-1] - ρ̄[j-1]), 2) / np.power(σ_ρ[j-1], 2)
     E = 1 / np.power(σ_N, 2) * E_I + sum_0 + sum_1 + sum_2
     return morphable_model_5ResultType(E)

@@ -49,7 +49,7 @@ multi_frame_1ResultType multi_frame_1(
         sum_0 += sum_1;
     }
     double sum_2 = 0;
-    for(int n=1; n<=w.rows(); n++){
+    for(int n=1; n<=R̂.size(); n++){
         double sum_3 = 0;
         for(int i=1; i<=w.cols(); i++){
             sum_3 += w(n-1, i-1) * R̂[n-1];

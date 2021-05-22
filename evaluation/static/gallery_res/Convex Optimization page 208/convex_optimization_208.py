@@ -31,9 +31,9 @@ def convex_optimization_208(x, p):
     sum_0 = 0
     for i in range(1, p.shape[0]+1):
         sum_1 = 0
-        for j in range(1, p.shape[1]+1):
+        for j in range(1, len(x)+1):
             sum_2 = 0
-            for k in range(1, len(x)+1):
+            for k in range(1, p.shape[1]+1):
                 sum_2 += x[k-1] * p[i-1, k-1]
             sum_1 += x[j-1] * p[i-1, j-1] * np.log2(p[i-1, j-1] / sum_2)
         sum_0 += sum_1

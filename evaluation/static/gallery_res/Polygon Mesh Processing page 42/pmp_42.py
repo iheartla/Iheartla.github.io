@@ -37,11 +37,11 @@ def pmp_42(α, n, v, N1):
     assert np.ndim(v) == 0
 
     sum_0 = np.zeros((3, ))
-    for T in range(1, len(α)+1):
+    for T in range(1, len(n)+1):
         if((T) in N1[v-1]):
             sum_0 += α[T-1] * n[T-1]
     sum_1 = np.zeros((3, ))
-    for T in range(1, len(α)+1):
+    for T in range(1, len(n)+1):
         if((T) in N1[v-1]):
             sum_1 += α[T-1] * n[T-1]
     n_left_parenthesis_v_right_parenthesis = (sum_0) / np.linalg.norm(sum_1, 2)

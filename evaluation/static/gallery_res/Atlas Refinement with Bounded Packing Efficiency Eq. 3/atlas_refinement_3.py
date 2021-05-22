@@ -41,7 +41,7 @@ def atlas_refinement_3(l, dist, bᵢ, b, σ, s_circumflex_accent_k):
     assert s_circumflex_accent_k.shape == (dim_0, 2, )
 
     sum_0 = np.zeros((2, ))
-    for j in range(1, len(b)+1):
+    for j in range(1, len(s_circumflex_accent_k)+1):
         sum_0 += l[j-1] * np.exp(-np.power(dist(bᵢ, b[j-1]), 2) / (2 * np.power(σ, 2))) * s_circumflex_accent_k[j-1]
     G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis = sum_0
     return atlas_refinement_3ResultType(G_σ_left_parenthesis_s_circumflex_accent_k_i_right_parenthesis)

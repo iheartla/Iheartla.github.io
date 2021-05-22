@@ -31,7 +31,7 @@ convex_optimization_220ResultType convex_optimization_220(
     assert( ν.size() == n );
 
     double sum_0 = 0;
-    for(int i=1; i<=ν.size(); i++){
+    for(int i=1; i<=x.size(); i++){
         sum_0 += ν[i-1] * (pow(x[i-1], 2) - 1);
     }
     double L_left_parenthesis_x_comma_ν_right_parenthesis = (double)(x.transpose() * W * x) + sum_0;
