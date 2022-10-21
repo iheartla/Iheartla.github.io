@@ -1,0 +1,19 @@
+,,
+Total cases,916,
+Parenthese definition,880 (96.1%),
+Square bracket definition,36 (3.9%),
+Implicit parameters,832 (90.8%),
+Unused parameters,141 (15.4%),
+Function subscript as parameter,151 (16.5%),
+Function superscript as parameter,17 (1.9%),
+Parameter subscript as parameter,16 (1.7%),
+Parameter superscript as parameter,4 (0.3%),
+Parameter defined like probability,26 (2.8%),
+Conditional functions,54 (5.9%),
+Parameters are also functions,13 (1.4%),
+Paper type,ANIMATION/SIMULATION,175 (19.1%)
+,IMAGING/VIDEO,159 (17.4%)
+,INTERACTION/VR,27 (2.9%)
+,METHODS & APPLICATIONS,56 (6.1%)
+,MODELING/GEOMETRY,237 (25.9%)
+,RENDERING/VISUALIZATION,262 (28.6%)

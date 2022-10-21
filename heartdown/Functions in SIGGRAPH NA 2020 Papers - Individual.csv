@@ -1,0 +1,917 @@
+Title,Equations,Parenthese definition,Square bracket definition,Implicit parameters,Unused parameters,Function subscript as parameter,Function superscript as parameter,Parameter subscript as parameter,Parameter superscript as parameter,Parameter defined like probability,Conditional functions,Parameters are also functions,"Paper type(ANIMATION/SIMULATION=1,IMAGING/VIDEO=2,INTERACTION/VR=4,METHODS & APPLICATIONS=8,MODELING/GEOMETRY=16,RENDERING/VISUALIZATION=32)"
+A Level-Set Method for Magnetic Substance Simulation,,T,,T,,T,,,,,T,,1
+,,T,,T,,,,,,,T,,1
+,,T,,,,,,,,,T,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,T,,1
+,,T,,T,,,,,,,T,,1
+,,T,,,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+A Model for Soap Film Dynamics with Evolving Thickness ,,T,,T,,T,,,,,,,1
+,,T,,T,,,,,,,,,1
+A Practical Octree Liquid Simulator With Adaptive Surface Resolution,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+A Scalable Approach to Control Diverse Behaviors for Physically Simulated Characters ,,T,,T,T,,,,,,,,1
+,,T,,T,,,,,,T,,,1
+A System for Efficient 3D Printed Stop-Motion Face Animation,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,T,,1
+,,T,,,,T,,,,,T,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,T,,1
+Adaptive Merging for Rigid Body Simulation,,T,,T,,,,,,,,,1
+AnisoMPM Animating Anisotropic Damage Mechanics ,,T,,T,,T,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,T,,1
+Capturing Subjective First-Person View Shots With Drones for Automated Cinematography,,T,,,,,,,,,,,1
+,,T,, ,,,,,,,,,1
+,,T,,,,,,,,,,,1
+,,T,,,,,,,,,,,1
+,,T,,T, ,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,, ,,,,,,,,1
+CARL- Controllable Agent with Reinforcement Learning for Quadruped Locomotion,,T,,T,,,,,,T,,,1
+Character Controllers Using Motion VAEs,,T,,T,T,,,,,,,,1
+Chemomechanical Simulation of Soap Film Flow on Spherical Bubbles ,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+Codimensional Surface Tension Flow Using Moving-Least-Squares Particles,,T,, , ,,,,,,,,1
+,,T,, , ,,,,,,,,1
+,,T,,T,,,,,,,T,,1
+Constraint Bubbles and Affine Regions- Reduced Fluid Models for Efficient Immersed Bubbles and Flexible Spatial Coarsening ,,T,,T,,,,,,,,,1
+Directional Sources and Listeners in Interactive Sound Propagation Using Reciprocal Wave Field Coding,,T,,T,,,,,,,,,1
+,,T,,T,,,T,,,,,,1
+, ,T,,T,,,T,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,T,,,,,,1
+,,T,,T,,,T,,,,,,1
+,,T,,T,,,,,,,,,1
+,,,T,T,,,,,,,,,1
+, ,T,,T,,,,,,,,,1
+Example-driven Virtual Cinematography by Learning Camera Behaviors,,T,,T,,,,,,,,,1
+,,T,,,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+Fast and Flexible Multilegged Locomotion Using Learned Centroidal Dynamics,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+Fast and Scalable Turbulent Flow Simulation with Two-Way Coupling,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,T,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,T, ,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,T,,,T,,,,,1
+,,T,,,,,,,,,T,,1
+,,T,,T,T,,,,,,,,1
+Hierarchical Optimization Time Integration for CFL-rate MPM Stepping,,T,,T,,,,,,,,,1
+High Resolution Etendue Expansion for Holographic Displays,,T,,T,T,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,T,,1
+,,T,,,,,,,,,,T,1
+,,T,,T,,,,,,,,T,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,T,1
+,,T,,T,T,T,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,T,T,,,,,,,1
+Homogenized Yarn-Level Cloth,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+"Incremental Potential Contact- Intersection- and Inversion-free, Large-Deformation Dynamics",,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,,,,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,,,,,,,T,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,,,,,,,T,,1
+"Informative Scene Decomposition for Crowd Analysis, Comparison and Simulation Guidance",,T,, ,,T,,,,,,,1
+,,T,,T,,,,,,T,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,T,,,1
+,,T,,T,,,,,,T,,,1
+,,T,,T,T,,,,,,,,1
+IQ-MPM- An Interface Quadrature Material Point Method for Non-sticky Strongly Two-Way Coupled Nonlinear Solids and Fluids ,,T,,T,,,,,T,,,,1
+,,T,,T,,,,,T,,,,1
+,,T,,T,,,T,,,,,,1
+,,T,,T,,,T,,,,,,1
+,,T,,T,,,T,,,,,,1
+,,T,,T,,,T,,,,,,1
+Lagrangian Neural Style Transfer for Fluids,,T,,T,T,T,,,,,,,1
+,,T,,T,,T,T,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,,T,,,,,,T,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+Learned Motion Matching,,T,,T,T,,,,,,,,1
+Local Motion Phases for Learning Multi-Contact Character Movements ,,T,,T,T,,,T,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+Medial Elastics- Efficient and Collision-ready Deformation via Medial Axis Transform,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+Model Predictive Control With a Visuomotor System for Physics-based Character Animation ,,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+N-Dimensional Rigid Body Dynamics,,T,,T,,,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,,T,,,,,,,1
+Phong Deformation- A Better CO Interpolant for Embedded Deformation,,T,,T,,,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+Projective Dynamics with Dry Frictional Contact ,,T,,T,,,,,,,,,1
+RigNet- Neural Rigging for Articulated Characters ,,T,,T,T,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,T,T,,T,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,T,T,,,,,,,1
+Robust Eulerian-on-Lagrangian Rods,,T,,T,,,,,,,,,1
+Simple and Scalable Frictional Contacts for Thin Nodal Objects ,,T,,T,,,,,,,,,1
+,,T,,T,,T,,,,,,,1
+,,T,,T,,,,,,,,,1
+The Leopard Never Changes Its Spots- Realistic Pigmentation Pattern Formation by Coupling Tissue Growth With Reaction-diffusion,,T,,T,,,,,,,,,1
+Unpaired Motion Style Transfer from Video to Animation,,T,,,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+Wave Curves- Simulating Lagrangian Water Waves on Dynamically Deforming Surfaces ,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,,T,T,,,,,,,,1
+,,T,,T,,,,,,,,,1
+,,T,, ,,,,,,,T,,1
+,,T,,T,,,,,,,,,1
+Attribute2Font- Creating Fonts You Want From Attributes,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,T,,,2
+,,T,,T,,,,,,T,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,,,,,,,,T,,2
+,,T,,T,,,,,,,,,2
+Computational Image Marking on Metals via Laser Induced Heating ,,T,,,,,,,,,,,2
+,,T,,,,,,,,,,,2
+,,T,,,,,,,,,,,2
+Consistent Video Depth Estimation ,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+DeepMag  Source Specific Motion Magnification Using Gradient Ascent ,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+,,T,, ,,T,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+"End-to-end Learned, Optically Coded Super-resolution SPAD Camera",,T,,T,T,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+Interferometric Transmission Probing With Coded Mutual Intensity,,T,,T,,,T,,,,,,2
+,,T,,T,,,T,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+,,T,,T,,T,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,, ,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+, ,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+KRISM - Krylov Subspace-Based Optical Computing of Hyperspectral Images,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T, ,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+Local Fourier Slice Photography,,T,,T,,T,,,,,,,2
+,,T,,T,,T,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,T,T,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,,,,T,,,,,,2
+Manipulating Attributes of Natural Scenes via Hallucination,,T,,,,,,,,,T,,2
+,,T,,T,,,,,,,,,2
+Non-Line-of-Sight Reconstruction using Efficient Transient Rendering,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+PolyFit- Perception-aligned Vectorization of Raster Clip-art via Intermediate Polygonal Fitting,,T,,T,T,,,,,,T,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,,,,,,,T,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+Portrait Shadow Manipulation,,T,,T,,,,,,,,,2
+Quanta Burst Photography,,T,,T,,,,,,,,,2
+,,,T,T,,,,,,,,T,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,T,,,,,,2
+,,T,,T,T,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,T,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,T,,,,,2
+Real-Time Image Smoothing via Iterative Least Squares,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,T,,2
+,,T,,T,,T,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+Single Image HDR Reconstruction Using a CNN with Masked Features and Perceptual Loss,,T,,T,,,,,,,,,2
+,,T,,T,,T,,,,,,,2
+Single-Shot High-Quality Facial Geometry and Skin Appearance Capture,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+XNect- Real-Time Multi-Person 3D Motion Capture With a Single RGB Camera ,,T,,T,T,,,,,,,,2
+,,T,,T,T,,,,,,,,2
+Enhanced Interactive 360Â° Viewing via Automatic Guidance,,T,,T,,T,,,,,,,4
+,,T,,T,,,,,,,,,4
+,,T,,T,,T,,,,,,,4
+,,T,,T,,T,,,,,,,4
+,,T,,T,T,T,,,,,,,4
+,,T,,T,,,,,,,,,4
+,,T,,,,,,,,,,,4
+,,T,,T,,T,,,,,,,4
+,,T,,T,,T,,,,,,,4
+,,T,,T,,,,,,,,,4
+,,T,,T,,,,,,,,,4
+Human-in-the-Loop Differential Subspace Search in High-Dimensional Latent Space,,T,,T,,T,,,,,,,4
+,,T,,T,,,,,,,,,4
+,,T,,T,,,,,,,,,4
+,,,T,T,T,,,,,,,,4
+,,,T,T,T,,,,,,,,4
+Immersive Light Field Video With a Layered Mesh Representation,,T,,T,,,,T,,,,,4
+MEgATrack- Monochrome Egocentric Articulated Hand-Tracking for Virtual Reality,,T,,T,,T,,,,,,,4
+Sequential Gallery for Interactive Visual Design Optimization,,T,,T,,,,,,,,,4
+,,T,,T,,,,,,,,,4
+,,T,,,,,,,,,,,4
+,,T,,,,,,,,,,,4
+,,T,,T,,,,,,,T,,4
+The Eyes Have It- An Integrated Eye and Face Model for Photorealistic Facial Animation,,T,,T,T,,,,,,,,4
+,,T,,T,T,,,,,,,,4
+,,T,,T,T,,,,,,,,4
+,,T,,T,T,,,,,,,,4
+CNNs on Surfaces using Rotation-Equivariant Features,,T,,,,T,,,,,,,8
+,,T,,T,T,T,,,,,,,8
+,,T,,,,T,,,,,,,8
+,,T,,T,,T,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,T,,,,,,,8
+Fast and Deep Facial Deformations,,T,,T,,,,,,,,,8
+,,T,,T,T,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+"Nonlinear Color Triads for Approximation, Learning, and Direct Manipulation of Color Distributions",,T,,T,,,,,,,,,8
+,,T,,,,T,,,,,,,8
+,,T,,,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+RoboCut- Hot-wire Cutting With Robot-controlled Flexible Rods,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,,,T,,,,,T,,8
+,,T,,T,,T,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,,,T,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,T,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+Sliced Optimal Transport Sampling,,T,,T,,T,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,,,T,,,,,,,8
+,,T,,T,,T,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,T,,,,,,,8
+,,T,,,,,,,,,,,8
+,,T,,T,,,,,,,T,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,T,,,,,,,8
+,,T,,T,,,,,,,T,,8
+,,T,,T,,T,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,,,8
+,,T,,T,,,,,,,T,,8
+A Class of C2 Interpolating Splines,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,,,T,,,,,,,16
+,,T,,,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+A Low-Parametric Rhombic Microstructure Family for Irregular Lattices ,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,,,,,,,,,,16
+A Smoothness Energy Without Boundary Distortion for Curved Surfaces,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+Algebraic Representations for Volumetric Frame Fields,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,T,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+Bezier Guarding- Precise Higher-Order Meshing of Curved 2D Domains,,T,,T,,,,,,,,,16
+C-Space Tunnel Discovery for Puzzle Path Planning,,T,,T,,,,,,,,,16
+Complete Classification and Efficient Determination of Arrangements Formed by Two Ellipsoids,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,,T,,,,,,,,16
+,,T,,,,,,,,,,,16
+Computational Design of Skintight Clothing,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,T,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,T,,16
+Computational Parquetry- Fabricated Style Transfer with Wood Pixels ,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+"Corner-Operated Tran-Similar (COTS) Maps, Patterns, and Lattices ",,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Data-Driven Extraction and Composition of Secondary Dynamics in Facial Performance Capture,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+Deep Generative Modeling for Scene Synthesis via Hybrid Representations,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+Developability of Heightfields via Rank Minimization,,T,,T,,,,,,,,,16
+Discrete Differential Operators on Polygonal Meshes,,T,,T,,T,,T,,,,,16
+,,T,,T,,T,,T,,,,,16
+,,T,,T,,,,T,,,,,16
+,,T,,T,,,,T,,,,,16
+Dynamic Graph CNN for Learning on Point Clouds,,T,,,,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+Efficient Bijective Parameterizations,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,T,,,,,,,16
+,,T,,T,T,,,T,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+ENIGMA- Evolutionary Non-Isometric Geometry Matching,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+Error-Bounded Compatible Remeshing ,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,T,,T,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Exact and Efficient Polyhedral Envelope Containment Check ,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,T,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Exertion-Aware Path Generation,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,,,,,,,T,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,T,,16
+,,T,,T,T,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+Fabrication-in-the-Loop Co-Optimization of Surfaces and Styli for Drawing Haptics,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,,T,T,,,,,,,,,16
+Graph2Plan- Learning Floorplan Generation from Layout Graphs,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,T,,16
+,,T,,T,,,,,,,T,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Inter-Surface Maps via Constant-Curvature Metrics,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,T,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Inverse Procedural Modeling of Branching Structures by Inferring L-Systems,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Kinetic Shape Reconstruction ,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Lifting Simplices to Find Injectivity,,T,,T,T,T,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+LoopyCuts- Practical Feature-Preserving Block Decomposition for Strongly Hex-Dominant Meshing,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+MGCN- Descriptor Learning using Multiscale GCNs,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,T,,,,,T,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Monte Carlo Geometry Processing- A Grid-Free Approach to PDE-Based Methods on Volumetric Domains,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,T,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,T,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,T,,,,,,,16
+,,T,,T,T,T,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+Octahedral Frames for Feature-Aligned Cross-Fields,,,T,T,,,,,,,,,16
+,,,T,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,,T,T,,,,,,,,,16
+,,,T,T,,,,,,,,,16
+On Elastic Geodesic Grids and Their Planar to Spatial Deployment,,T,,T,T,T,,,,,,,16
+Point2Mesh- A Self-prior for Deformable Meshes,,T,,,,,,,,,,,16
+,,T,,,T,,,,,,,,16
+Principal Symmetric Meshes,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+Quad-mesh based isometric mappings and developable surfaces,,T,,T,,T,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,T,,,,16
+Reinforcement of General Shell Structures,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,, ,T,T,,,,,,,,,16
+,, ,T,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,,T,T,,,,,,,,,16
+Subdivision Directional Fields,  ,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+Uncertainty Quantification for Multi-scan Registration,,T,,T,,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,,T,,,,,,,16
+,,T,,T,T,T,,,,,,T,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,T,,,,,,T,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,, ,T,T,,,,,,,,,16
+,, ,T,T,,,,,,,,,16
+Variable-Width Contouring for Additive Manufacturing,,T, ,T,T,,,,,,,,16
+,,T, ,T,,,,,,,,,16
+,,T, ,T,,,,,,,,,16
+Vid2Curve- Simultaneously Camera Motion Estimation and Thin Structure Reconstruction from an RGB Video,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,T,,,,,,,,16
+,,T,,T,,,,,,,,,16
+A Luminance-aware Model of Judder Perception,,T,,T,,,,,,,,,32
+,,T,,,,,,,,,,,32
+,,T,,,,,,,,,,,32
+A perceptual model of motion quality for rendering with adaptive refresh-rate and resolution,,T,,T,,,,,,,,,32
+,,T,,,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,T,T,,,,,,,32
+Accurate Rendering of Liquid-Crystals and Inhomogeneous Optically Anisotropic Media ,,T,,T,,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,, ,,,,,,,,,32
+,,T,,,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+Adaptive Incident Radiance Field Sampling and Reconstruction Using Deep Reinforcement Learning,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,T,,,,,,32
+,,T,,T,,,T,,,,,,32
+,,T,,T,T,, ,,T,,,,32
+Analytic Spherical Harmonic Gradients for Real-Time Rendering With Many Polygonal Area Lights,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,T,,,,,32
+,,T,,T,,T,,,,,T,,32
+,,T,,T,,T,,,,,,,32
+Compositional Neural Scene Representations for Shading Inference,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+Continuous Multiple Importance Sampling,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,, ,T,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,,T,T,,,,,,,,,32
+Converting Stroked Primitives to Filled Primitives,,T,,,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,T, ,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+Delayed Rejection Metropolis Light Transport,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+Example-Based Microstructure Rendering With Constant Storage,,T,,T,,T,,,,,,,32
+,,T,,T,T,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+Generating Digital Painting Lighting Effects via RGB-space Geometry,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+Image-Based Acquisition and Modeling of Polarimetric Reflectance,,T,,T,,,,,,,,,32
+,,T,,,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+Langevin Monte Carlo Rendering with Gradient-based Adaptation,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+Massively Parallel Rendering of Complex Closed-Form Implicit Surfaces,,T,,,,,,,,,,,32
+"Microfacet BSDFs Generated From NDFs, Using Explicit Microgeometry",,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+Neural Supersampling for Real-time Rendering,,T,,T,,,,,,,,,32
+Path-Space Differentiable Rendering,,T,,T,T,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+Polar Stroking- New Theory and Methods for Stroking Paths,,T,,T,,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,, ,,,,,,,T,,32
+,,T,,T,,T,,,,,T,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,T,,,,,,T,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,,,T,,,,,T,,32
+,,T,,T,,,,,,,T,,32
+Radiative Backpropagation- An Adjoint Method for Lightning-Fast Differentiable Rendering,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,T,,,,,,,,,32
+Resampling-Aware Weighting Functions for Bidirectional Path Tracing Using Multiple Light Sub-Paths,,T,,T,,,,,,T,,,32
+,,,T,T,T,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,,,,32
+,,T,,T,T,T,,,,,,,32
+,,T,,T,T,T,,,,,,,32
+,,T,,T,,,,,,T,,,32
+,,,T,T,T,,,T,,,,,32
+,,,T,T,T,,,T,,,,,32
+,,,T,T,T,,,T,,,,,32
+,,,T,T,,T,,,,,,,32
+,,,T,T,,,,,,,,,32
+,,,T,T,,T,,,,,T,,32
+,,,T,T,,T,,,,,,,32
+,,,T,T,,,,,,,,,32
+,,,T,T,T,,,,,,,,32
+,,,T,T,T,,,,,,,,32
+,,,T,T,,,,,,T,,,32
+,,,T,T,,,,,,,,,32
+Robust Fitting of Parallax-Aware Mixtures for Path Guiding,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,T,,,32
+,,T,,,,,,,,T,,,32
+,,T,,T,,,,,,T,,,32
+,,,T,,,,,,,,,T,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,T,,,,,T,,,32
+,,T,,T,,,,,,T,,,32
+,,T,,T,T,,,,,T,,,32
+,,T,,T,,T,,,,,,,32
+,,T,,T,,,,,,T,,T,32
+,,T,,T,,,,,,T,,,32
+,,T,,T,T,,,,,T,,,32
+Spatiotemporal Reservoir Resampling for Real-Time Ray Tracing With Dynamic Direct Lighting,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,T,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,T,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,, ,T,,,,,,,,,T,32
+,,,T,,,,,,,,,T,32
+,,T,,,,,,,,,,,32
+,,,T,,,,,,,,,T,32
+,,T,,T,,,,T,,,,,32
+Specular Manifold Sampling for Rendering High-Frequency Caustics and Glints,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,T,,32
+,,T,,,,,,,,,,,32
+,,T,,,,,,,,,,,32
+Variance-Aware Path Guiding,,T,,T,,,,,,,,,32
+,,,T,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
+,,,T,,,,,,,,,T,32
+,,T,,T,,T,,,,T,,,32
+,,T,,T,,T,,,,T,,,32
+,,T,,T,,,,,,,,,32
+,,,T,T,T,,,,,,,T,32
+,,T,,T,,,,,,T,,,32
+,,T,,T,,,,,,,,,32
+,,T,,T,,,,,,,,,32
