@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="citation_title" content="I❤️MESH: A DSL for Mesh Processing">
+<meta name="citation_author" content="Li, Yong">
+<meta name="citation_author" content="Kamil, Shoaib">
+<meta name="citation_author" content="Crane, Keenan">
+<meta name="citation_author" content="Jacobson, Alec">
+<meta name="citation_author" content="Gingold, Yotam">
+<meta name="citation_publication_date" content="2024">
+<meta name="citation_pdf_url" content="iheartmesh.pdf">
+<meta name="author" content="Yong Li, Shoaib Kamil, Keenan Crane, Alec Jacobson, Yotam Gingold"/>
+<meta property="og:image" content="https://iheartla.github.io/iheartmesh/representative.jpg" /> <meta property="og:description" content="Mesh processing algorithms are often communicated via concise mathematical notation (e.g., summation over mesh neighborhoods).  However, conversion of notation into working code remains a time consuming and error-prone process which requires arcane knowledge of low-level data structures and libraries---impeding rapid exploration of high-level algorithms. We address this problem by introducing a domain-specific language (DSL) for mesh processing called I❤️MESH, which resembles notation commonly used in visual and geometric computing, and automates the process of converting notation into code.  The centerpiece of our language is a flexible notation for specifying and manipulating neighborhoods of a cell complex, internally represented via standard operations on sparse boundary matrices. This layered design enables natural expression of algorithms while minimizing demands on a code generation back-end. In particular, by integrating I❤️MESH with the linear algebra features of the I❤️LA DSL, and adding support for automatic differentiation, we can rapidly implement a rich variety of algorithms on point clouds, surface meshes, and volume meshes." /> <meta name="twitter:card" content="summary"></meta> <meta name="og:title" content="I❤️MESH: A DSL for Mesh Processing"></meta>
+
+<title>I❤️MESH: A DSL for Mesh Processing</title>
+<link rel="stylesheet" href="./CaseStudies/static/style.css">
+<link rel="stylesheet" href="./CaseStudies/static/prism.css">
+<script src="./CaseStudies/static/prism.js"></script>
+<style>
+.emoji {font-size: 80%; line-height: 100%;}
+</style>
+<body>
+<header><h1 class="title">I<span class="emoji">❤️</span>MESH: A DSL for Mesh Processing</h1>
+<h3 class="title"><a href="https://pressureless.github.io/">Yong Li</a>, <a href="https://people.csail.mit.edu/skamil/">Shoaib Kamil</a>, <a href="https://www.cs.cmu.edu/~kmcrane/">Keenan Crane</a>, <a href="https://www.cs.toronto.edu/~jacobson/">Alec Jacobson</a>, <a href="https://cragl.cs.gmu.edu/">Yotam Gingold</a></h3>
+</header>
+<div class="clearfix"></div>
+
+<div class="page">
+
+<!-- <h4><a href="iheartla/">In-Browser Compiler</a> (Chrome or Firefox, not Safari)</h4> -->
+<!-- <h4><a href="https://github.com/iheartla/iheartla/wiki">Language Reference</a></h4> -->
+<!-- <h4><a href="https://discord.gg/JvfYb6BXqJ">Discord</a></h4> -->
+<h4>Code: <a href="https://github.com/iheartla/iheartla/tree/mesh">GitHub</a></h4>
+<h4>Paper: <a href="iheartmesh.pdf">TOG (presented at SIGGRAPH Asia 2024) [PDF 23 MB]</a></h4>
+<h4><a href="supplemental_material.zip"><span class="normal">Compiler and Examples [13MB ZIP]</span></a></h4>
+</div>
+
+<div class="page" style="background: #eee">
+<div>
+    <img src="representative.jpg" srcset="representative.jpg 1x, representative@2x.jpg 2x" style="max-width: 100%">
+</div>
+<div style="text-align: justify; padding-top: 1em">
+    I<span class="emoji">❤️</span>️MESH is a DSL for mesh processing which resembles notation commonly used in visual and geometric computing, automating the mechanical process of converting notation into code. I<span class="emoji">❤️</span>️MESH has a flexible notation for specifying and manipulating mesh neighborhoods in a cellular complex, internally represented by standard operations on sparse boundary matrices.
+</div>
+</div>
+
+<div class="page" style="text-align: justify">
+<h4>Abstract:</h4>
+Mesh processing algorithms are often communicated via concise mathematical notation (e.g., summation over mesh neighborhoods).  However, conversion of notation into working code remains a time consuming and error-prone process which requires arcane knowledge of low-level data structures and libraries---impeding rapid exploration of high-level algorithms. We address this problem by introducing a domain-specific language (DSL) for mesh processing called I<span class="emoji">❤️</span>️️MESH, which resembles notation commonly used in visual and geometric computing, and automates the process of converting notation into code.  The centerpiece of our language is a flexible notation for specifying and manipulating neighborhoods of a cell complex, internally represented via standard operations on sparse boundary matrices. This layered design enables natural expression of algorithms while minimizing demands on a code generation back-end. In particular, by integrating I<span class="emoji">❤️</span>️️MESH with the linear algebra features of the I<span class="emoji">❤️</span>️️LA DSL, and adding support for automatic differentiation, we can rapidly implement a rich variety of algorithms on point clouds, surface meshes, and volume meshes.
+</div>
+
+<!--
+<div class="page">
+<h4>40-second Fast Forward [SIGGRAPH Asia 2022]</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b1a2ZzqOPwQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Download as: <a href="https://cragl.cs.gmu.edu/heartdown/fastforward.mp4">MP4 [29 MB]</a>
+</div>
+
+<div class="page">
+<h4>20-minute presentation</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZqF4G25TbS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Download as:
+<ul>
+<li><a href="https://cragl.cs.gmu.edu/heartdown/20min.mp4">MP4 [50 MB]</a></li>
+<li><a href="https://cragl.cs.gmu.edu/heartdown/20min.key">Keynote [385 MB]</a></li>
+<li><a href="https://cragl.cs.gmu.edu/heartdown/20min.pdf">PDF [33 MB]</a></li>
+<li><a href="https://cragl.cs.gmu.edu/heartdown/20min-notes.pdf">PDF with presenter notes [9 MB]</a></li>
+</ul>
+</div>
+
+<div class="page">
+<h4>10-minute presentation</h4>
+<p>No video. Download as:
+<ul>
+<li><a href="https://cragl.cs.gmu.edu/heartdown/10min.key">Keynote [385 MB]</a></li>
+<li><a href="https://cragl.cs.gmu.edu/heartdown/10min.pdf">PDF [33 MB]</a></li>
+<li><a href="https://cragl.cs.gmu.edu/heartdown/10min-notes.pdf">PDF with presenter notes [9 MB]</a></li>
+</ul>
+</div>
+-->
+
+<div class="page">
+<h4>BibTeX:</h4>
+<pre style="white-space: pre-wrap;">
+@article{li2024iheartmesh,
+ author    = {Li, Yong and Kamil, Shoaib and Crane, Keenan and Jacobson, Alec and Gingold, Yotam},
+ title     = {{I Heart MESH}: {A} {DSL} for Mesh Processing},
+ journal   = {ACM Trans. Graph.},
+ year      = {2024},
+ month     = {oct},
+ volume    = {43},
+ number    = {5},
+ articleno = {154},
+ numpages  = {17},
+ doi       = {10.1145/3662181},
+ issn      = {0730-0301},
+ keywords  = {Meshes, geometry processing, domain-specific language},
+ abstract  = {Mesh processing algorithms are often communicated via concise mathematical notation (e.g., summation over mesh neighborhoods). However, conversion of notation into working code remains a time-consuming and error-prone process, which requires arcane knowledge of low-level data structures and libraries—impeding rapid exploration of high-level algorithms. We address this problem by introducing a domain-specific language (DSL) for mesh processing called I Heart MESH, which resembles notation commonly used in visual and geometric computing and automates the process of converting notation into code. The centerpiece of our language is a flexible notation for specifying and manipulating neighborhoods of a cell complex, internally represented via standard operations on sparse boundary matrices. This layered design enables natural expression of algorithms while minimizing demands on a code generation backend. In particular, by integrating I Heart MESH with the linear algebra features of the I Heart LA DSL and adding support for automatic differentiation, we can rapidly implement a rich variety of algorithms on point clouds, surface meshes, and volume meshes.},
+}
+</pre>
+</div>
+
+</body>
+</html>
